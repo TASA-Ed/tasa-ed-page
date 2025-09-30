@@ -1,11 +1,11 @@
-const STUDIO = "TASA-Ed";
+import * as constant from "./constant.json";
 
 export default function Footer() {
     return (
         <footer className="bg-white border-t border-slate-100">
             <div
                 className="w-[92%] max-w-6xl mx-auto pt-6 pb-1 flex flex-col md:flex-row items-center justify-center gap-4">
-                <div className="text-sm">© 2022 - {new Date().getFullYear()} By {STUDIO} 工作室</div>
+                <div className="text-sm">© 2022 - {new Date().getFullYear()} By {constant.name} 工作室</div>
             </div>
             <div
                 className="w-[92%] max-w-6xl mx-auto pt-1 pb-6 flex flex-col md:flex-row items-center justify-center gap-4">

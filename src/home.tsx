@@ -2,10 +2,7 @@ import { useState, type JSX } from "react";
 import { motion } from "framer-motion";
 import { FiMenu, FiChevronLeft, FiMail, FiGithub } from "react-icons/fi";
 import Footer from "./footer.tsx";
-
-const STUDIO = "TASA-Ed";
-
-const MAIL = "studio@tasaed.top";
+import * as constant from "./constant.json";
 
 export default function StudioHome(): JSX.Element {
     const [open, setOpen] = useState(false);
@@ -27,7 +24,7 @@ export default function StudioHome(): JSX.Element {
                             onClick={() => scrollTo("hero")}
                         >
                             <img width="26px" height="26px" src="/assets/tasaed.svg" alt="Logo" />
-                            <span className="pl-1">TASA-Ed</span>
+                            <span className="pl-1">{constant.name}</span>
                             <span className="text-indigo-600"> 工作室</span>
                         </button>
                         <div className="hidden md:flex items-center gap-1 text-sm text-slate-700">
@@ -87,7 +84,7 @@ export default function StudioHome(): JSX.Element {
                             className="space-y-6"
                         >
                             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
-                                <span className="text-purple-600">{STUDIO} </span>
+                                <span className="text-purple-600">{constant.name} </span>
                                 工作室
                             </h1>
                             <p className="text-slate-600 max-w-xl">
@@ -134,8 +131,8 @@ export default function StudioHome(): JSX.Element {
                                 <div className="space-y-4">
                                     <div className="rounded-xl p-4 bg-white shadow">
                                         <h4 className="font-semibold">邮箱</h4>
-                                        <a className="mt-2 inline-flex items-center gap-2 text-sm text-indigo-600" href={`mailto:${MAIL}?subject=合作咨询`}>
-                                            <FiMail size={18} /> {MAIL}
+                                        <a className="mt-2 inline-flex items-center gap-2 text-sm text-indigo-600" href={`mailto:${constant.email}?subject=合作咨询`}>
+                                            <FiMail size={18} /> {constant.email}
                                         </a>
                                     </div>
 
@@ -158,7 +155,7 @@ export default function StudioHome(): JSX.Element {
                                         };
                                         const subject = encodeURIComponent("合作咨询：" + form.name.value);
                                         const body = encodeURIComponent(form.message.value + "\n\n来自：" + form.email.value);
-                                        window.location.href = `mailto:${MAIL}?subject=${subject}&body=${body}`;
+                                        window.location.href = `mailto:${constant.email}?subject=${subject}&body=${body}`;
                                     }}
                                 >
                                     <div>
