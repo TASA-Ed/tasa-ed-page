@@ -18,8 +18,8 @@ export default defineConfig({
             output: {
                 advancedChunks: {
                     groups: [
-                        { name: 'react',test: /\/react(?:-dom)?/ },
-                        { name: 'framer-motion',test: /\/framer-motion?/ }
+                        { name: 'vendor-react',test: /\/react(?:-dom)?/ },
+                        { name: 'vendor-framer-motion',test: /\/framer-motion?/ }
                     ]
                 }
             }
