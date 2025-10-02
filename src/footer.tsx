@@ -1,4 +1,4 @@
-import * as constant from "./constant.json";
+import * as constant from "./json/constant.json";
 
 export default function Footer() {
     return (

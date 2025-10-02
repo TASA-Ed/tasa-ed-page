@@ -22,6 +22,10 @@ export default defineConfig({
                         { name: 'vendor-framer-motion',test: /\/framer-motion?/ }
                     ]
                 }
+            },
+            input: {
+                main: 'index.html',
+                downloads: 'downloads/index.html'
             }
         }
     }

@@ -5,3 +5,7 @@
 :root {
     --studio-nav-height: 96px;
 }
+
+.in-load {
+    display: none;
+}
