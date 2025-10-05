@@ -24,8 +24,6 @@ export default function Header() {
                             <a className="px-3 py-2 rounded-md hover:bg-slate-50"
                                href="/">首页</a>
                             <a className="px-3 py-2 rounded-md hover:bg-slate-50"
-                               href="/blog/">博客</a>
-                            <a className="px-3 py-2 rounded-md hover:bg-slate-50"
                                href="/downloads/">下载</a>
                             <a className="px-3 py-2 rounded-md hover:bg-slate-50" target="_blank"
                                href="https://qm.qq.com/cgi-bin/qm/qr?k=meZHnANAtGqxFXNHBnad1m1ms3li_Pgj&jump_from=webapi&authKey=YfabJovSWyCBqhrV7B5VWkVSG5hQTsd19AEvjMTFy2jafZ9goaIlJOm9jh7dv6f/">Q群</a>
@@ -60,8 +58,6 @@ export default function Header() {
                     <div className="flex flex-col gap-2">
                         <a className="text-left px-3 py-2 hover:bg-slate-50"
                            href="/">首页</a>
-                        <a className="text-left px-3 py-2 hover:bg-slate-50"
-                           href="/blog/">博客</a>
                         <a className="text-left px-3 py-2 hover:bg-slate-50"
                            href="/downloads/">下载</a>
                         <a className="text-left px-3 py-2 hover:bg-slate-50" target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=meZHnANAtGqxFXNHBnad1m1ms3li_Pgj&jump_from=webapi&authKey=YfabJovSWyCBqhrV7B5VWkVSG5hQTsd19AEvjMTFy2jafZ9goaIlJOm9jh7dv6f/">Q群</a>
