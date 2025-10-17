@@ -12,6 +12,7 @@ export type DownloadItem = {
     fileName?: string;
     size?: string; // e.g. "12 MB"
     thumbnail?: string; // 图片链接（可选），如果没有会展示内置图标
+    time?: string; // 时间
     href: string; // 点击跳转的下载链接
 };
 
@@ -43,7 +44,7 @@ const FallbackIcon: React.FC<{ size: number }> = ({size}) => {
     );
 };
 
-function Icon(it: DownloadItem,thumbSize: number) {
+function Icon(it: DownloadItem,thumbSize: number): React.ReactNode {
     switch (it.thumbnail) {
         case "github":
             return (<FiGithub size={thumbSize * 0.65} />)
@@ -122,9 +123,8 @@ export default function DownloadListPage(
                                     className={`group block bg-white/80 dark:bg-slate-800/60 shadow-sm hover:shadow-md transition rounded-2xl overflow-hidden ${cardClassName}`}
                                 >
                                     <div className="flex gap-4 items-center p-4 md:p-5">
-                                        <div className={`flex-shrink-0 w-[${thumbSize}px] h-[${thumbSize}px]`}
-                                            // 为兼容 tailwind，使用 inline style 来设置固定像素大小
-                                             style={{width: thumbSize, height: thumbSize}}
+                                        <div className="flex-shrink-0"
+                                            style={{width: thumbSize, height: thumbSize}}
                                         >
                                             <div
                                                 className="w-full h-full rounded-lg overflow-hidden bg-slate-50 dark:bg-slate-700 flex items-center justify-center">
@@ -144,6 +144,8 @@ export default function DownloadListPage(
                                                 </div>
 
                                                 <div className="flex-shrink-0 ml-3 text-right">
+                                                    {it.time && <div
+                                                        className="text-xs text-slate-500 dark:text-slate-400 pb-2">{it.time}</div>}
                                                     {it.size && <div
                                                         className="text-xs text-slate-500 dark:text-slate-400">{it.size}</div>}
                                                 </div>

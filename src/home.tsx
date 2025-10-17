@@ -1,9 +1,10 @@
 import { type JSX } from "react";
 import { motion } from "framer-motion";
 import { FiMail, FiGithub } from "react-icons/fi";
-import { useScrollTo } from "./useScrollTo.tsx";
+import { RiQqLine } from "react-icons/ri";
+import { useScrollTo } from "./hooks/use-scroll-to.tsx";
 
-import * as constant from "./json/constant.json";
+import constant from "./json/constant.json";
 
 import Footer from "./footer.tsx";
 import Header from "./header.tsx";
@@ -31,7 +32,7 @@ export default function StudioHome(): JSX.Element {
                                 工作室
                             </h1>
                             <p className="text-slate-600 max-w-xl">
-                                成立于 2020 年 12 月 30 日，一个专注于自媒体，软件游戏开发，网站搭建的工作室，而且，我们喜欢开源！
+                                成立于 2020 年 12 月 20 日，一个专注于自媒体，软件游戏开发，网站搭建的工作室，而且，我们喜欢开源！
                             </p>
 
                             <div className="flex gap-3">
@@ -68,7 +69,7 @@ export default function StudioHome(): JSX.Element {
                     <div className="w-[92%] py-2 max-w-4xl mx-auto">
                         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                             <h2 className="text-3xl font-bold mb-2">联系我们</h2>
-                            <p className="text-slate-600 mb-8">想一起做点有意思的项目？给我们发邮件或者通过下面的表单快速联系。</p>
+                            <p className="text-slate-600 mb-8">想联系我们或一起做点有意思的项目？给我们发邮件或者通过下面的表单快速联系。</p>
 
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                                 <div className="space-y-4">
@@ -85,19 +86,25 @@ export default function StudioHome(): JSX.Element {
                                             <FiGithub size={18} /> @TASA-Ed
                                         </a>
                                     </div>
+
+                                    <div className="rounded-xl p-4 bg-white shadow">
+                                        <h4 className="font-semibold">QQ群</h4>
+                                        <a className="mt-2 inline-flex items-center gap-2 text-sm text-indigo-600" target="_blank" href={"https://qm.qq.com/cgi-bin/qm/qr?k=meZHnANAtGqxFXNHBnad1m1ms3li_Pgj&jump_from=webapi&authKey=YfabJovSWyCBqhrV7B5VWkVSG5hQTsd19AEvjMTFy2jafZ9goaIlJOm9jh7dv6f/"}>
+                                            <RiQqLine size={18} /> 597524393
+                                        </a>
+                                    </div>
                                 </div>
 
                                 <form
                                     className="rounded-xl p-6 bg-white shadow space-y-4"
                                     onSubmit={(e) => {
                                         e.preventDefault();
-                                        const form = e.currentTarget as HTMLFormElement & {
-                                            name: { value: string };
-                                            email: { value: string };
-                                            message: { value: string };
-                                        };
-                                        const subject = encodeURIComponent("合作咨询：" + form.name.value);
-                                        const body = encodeURIComponent(form.message.value + "\n\n来自：" + form.email.value);
+                                        const formData = new FormData(e.currentTarget);
+                                        const name = formData.get('name') as string;
+                                        const email = formData.get('email') as string;
+                                        const message = formData.get('message') as string;
+                                        const subject = encodeURIComponent("合作咨询：" + name);
+                                        const body = encodeURIComponent(message + "\n\n来自：" + email);
                                         window.location.href = `mailto:${constant.email}?subject=${subject}&body=${body}`;
                                     }}
                                 >

@@ -1,7 +1,9 @@
 @import 'tailwindcss';
 
-:root {
-    --studio-nav-height: 96px;
+@layer base {
+    :root {
+        --studio-nav-height: 96px;
+    }
 }
 
 .in-load {

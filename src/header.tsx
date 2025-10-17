@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { useScrollTo } from "./useScrollTo.tsx";
+import { useScrollTo } from "./hooks/use-scroll-to.tsx";
 import { FiMenu, FiChevronLeft } from "react-icons/fi";
 
-import * as constant from "./json/constant.json";
+import constant from "./json/constant.json";
 
 export default function Header() {
     const { open, setOpen, scrollTo } = useScrollTo();
@@ -15,6 +15,7 @@ export default function Header() {
                         <button
                             className="rounded-lg px-1 flex font-semibold text-lg hover:bg-slate-50"
                             onClick={() => scrollTo("hero")}
+                            aria-label={"返回顶部"}
                         >
                             <img width="26px" height="26px" src="/assets/tasaed.svg" alt="Logo" />
                             <span className="pl-1">{constant.name}</span>
@@ -40,7 +41,7 @@ export default function Header() {
                         <button
                             className="md:hidden p-2 rounded-md"
                             onClick={() => setOpen((s) => !s)}
-                            aria-label="menu"
+                            aria-label={open ? "关闭菜单" : "打开菜单"}
                         >
                             {open ? <FiChevronLeft /> : <FiMenu />}
                         </button>
