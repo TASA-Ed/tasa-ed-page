@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.14",
-    "framer-motion": "^12.23.22",
+    "framer-motion": "^12.23.24",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
@@ -18,21 +18,21 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.37.0",
-    "@types/react": "^19.2.0",
-    "@types/react-dom": "^19.2.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
     "@vitejs/plugin-react": "^5.0.4",
     "eslint": "^9.37.0",
-    "eslint-plugin-react-hooks": "^6.1.1",
-    "eslint-plugin-react-refresh": "^0.4.23",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.4.0",
-    "rollup-plugin-visualizer": "^6.0.4",
+    "rollup-plugin-visualizer": "^6.0.5",
     "typescript": "~5.9.3",
-    "typescript-eslint": "^8.45.0",
-    "vite": "npm:rolldown-vite@7.1.15"
+    "typescript-eslint": "^8.46.1",
+    "vite": "npm:rolldown-vite@7.1.17"
   },
   "pnpm": {
     "overrides": {
-      "vite": "npm:rolldown-vite@7.1.15"
+      "vite": "npm:rolldown-vite@7.1.17"
     }
   },
   "packageManager": "pnpm@10.18.0+sha512.e804f889f1cecc40d572db084eec3e4881739f8dec69c0ff10d2d1beff9a4e309383ba27b5b750059d7f4c149535b6cd0d2cb1ed3aeb739239a4284a68f40cfa"
