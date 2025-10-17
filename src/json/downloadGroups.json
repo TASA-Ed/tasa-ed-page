@@ -7,7 +7,7 @@
         {
           "id": "scp25d-1",
           "title": "SCP：2.5D GitHub",
-          "description": "SCP：2.5D。",
+          "description": "SCP：2.5D",
           "thumbnail": "github",
           "href": "https://github.com/tasa-ed/scp25d/",
           "time": "开发中"
@@ -15,7 +15,7 @@
         {
           "id": "scp25d-2",
           "title": "SCP：2.5D - SE GitHub",
-          "description": "SCP：2.5D 的剧本编辑器版本。",
+          "description": "SCP：2.5D 的剧本编辑器版本",
           "thumbnail": "github",
           "href": "https://github.com/tasa-ed/scp25d-SE/",
           "time": "已归档"
@@ -23,7 +23,7 @@
         {
           "id": "scp25d-3",
           "title": "SCP：2.5D - SE 版本存档",
-          "description": "SCP：2.5D - SE 的所有版本存档。（OneDrive）",
+          "description": "SCP：2.5D - SE 的所有版本存档（OneDrive）",
           "thumbnail": "archive",
           "size": "719 MB",
           "href": "https://1drv.ms/f/c/568ae44e1937060b/Ei5p0i5BjlRPk6XY3ZY7SM8BZ2yUEuUD595KLNpcLvPp4g?e=Ny6CjV",
@@ -32,7 +32,7 @@
         {
           "id": "scp25d-4",
           "title": "SCP：2.5D - SE 版本存档",
-          "description": "SCP：2.5D - SE 的所有版本存档。（百度网盘，提取码：S25D）",
+          "description": "SCP：2.5D - SE 的所有版本存档（百度网盘，提取码：S25D）",
           "thumbnail": "archive",
           "size": "719 MB",
           "href": "https://pan.baidu.com/s/1I-1hTPN6UMhj9RXN1Ftk2A?pwd=S25D",
@@ -47,7 +47,7 @@
         {
           "id": "software-1",
           "title": "鹰歌游戏启动器 V2 GitHub",
-          "description": "鹰歌游戏启动器 V2。",
+          "description": "鹰歌游戏启动器 V2 源代码",
           "thumbnail": "github",
           "href": "https://github.com/TASA-Ed/MakerFrameLauncherV2",
           "time": "开发中"
@@ -55,7 +55,7 @@
         {
           "id": "software-1-32",
           "title": "鹰歌游戏启动器 V2 32",
-          "description": "鹰歌游戏启动器 V2 v2.0.2.1 x86（32位）。",
+          "description": "鹰歌游戏启动器 V2 v2.0.2.1 x86（32位）",
           "size": "98.6 KB",
           "thumbnail": "01",
           "href": "https://api.tasaed.top/otoe/?otoid=mfl32",
@@ -64,7 +64,7 @@
         {
           "id": "software-1-64",
           "title": "鹰歌游戏启动器 V2 64",
-          "description": "鹰歌游戏启动器 V2 v2.0.2.1 x64（64位）。",
+          "description": "鹰歌游戏启动器 V2 v2.0.2.1 x64（64位）",
           "size": "103 KB",
           "thumbnail": "01",
           "href": "https://api.tasaed.top/otoe/?otoid=mfl64",
@@ -73,7 +73,7 @@
         {
           "id": "software-2",
           "title": "Mi计划 GitHub",
-          "description": "一个简单的软件，可以用来做一些笔记，或者记一些账单。",
+          "description": "一个简单的软件，可以用来做一些笔记，或者记一些账单",
           "thumbnail": "github",
           "href": "https://github.com/TASA-Ed/iamiplan",
           "time": "开发中"
@@ -81,7 +81,7 @@
         {
           "id": "software-2-32",
           "title": "Mi计划 32",
-          "description": "Mi计划 v0.3.2 32位。",
+          "description": "Mi计划 v0.3.2 32位",
           "size": "4.11 MB",
           "thumbnail": "01",
           "href": "https://api.tasaed.top/otoe/?otoid=mi32",
@@ -90,7 +90,7 @@
         {
           "id": "software-2-64",
           "title": "Mi计划 64",
-          "description": "Mi计划 v0.3.2 64位。",
+          "description": "Mi计划 v0.3.2 64位",
           "size": "4.09 MB",
           "thumbnail": "01",
           "href": "https://api.tasaed.top/otoe/?otoid=mi64",
@@ -105,7 +105,7 @@
         {
           "id": "script-editor-a11",
           "title": "剧本编辑器安卓11适配版",
-          "description": "剧本编辑器安卓11适配版（By TASA-Ed）。",
+          "description": "剧本编辑器安卓11适配版（By TASA-Ed）",
           "size": "28.2 MB",
           "thumbnail": "zip",
           "href": "https://api.tasaed.top/otoe/?otoid=sea11",
@@ -114,7 +114,7 @@
         {
           "id": "script-editor-281f",
           "title": "剧本编辑器 2.8.1f",
-          "description": "剧本编辑器 2.8.1f（By TASA-Ed）。",
+          "description": "剧本编辑器 2.8.1f（By TASA-Ed）",
           "size": "56.5 MB",
           "thumbnail": "zip",
           "href": "https://api.tasaed.top/otoe/?otoid=se281f",
@@ -129,7 +129,7 @@
         {
           "id": "sgas-1",
           "title": "SCP 游戏助手存档",
-          "description": "SCP 游戏助手的所有版本存档。（百度网盘，提取码：SGAs）",
+          "description": "SCP 游戏助手的所有版本存档（百度网盘，提取码：SGAs）",
           "size": "59.8 MB",
           "thumbnail": "archive",
           "href": "https://pan.baidu.com/s/1l9Z9MfEwGGpvdIETPGck1Q?pwd=SGAs",

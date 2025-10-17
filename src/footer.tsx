@@ -2,10 +2,10 @@ import constant from "./json/constant.json";
 
 export default function Footer() {
     return (
-        <footer className="bg-white border-t border-slate-100">
+        <footer className="bg-white dark:bg-zinc-700 border-t border-slate-100 dark:border-zinc-600">
             <div
                 className="w-[92%] max-w-6xl mx-auto pt-6 pb-1 flex flex-col md:flex-row items-center justify-center gap-4">
-                <div className="text-sm">© 2022 - {new Date().getFullYear()} By {constant.name} 工作室</div>
+                <div className="text-sm text-slate-900 dark:text-slate-100">Copyright © 2022 - {new Date().getFullYear()} By {constant.name} 工作室</div>
             </div>
             <div
                 className="w-[92%] max-w-6xl mx-auto pt-1 pb-6 flex flex-col md:flex-row items-center justify-center gap-4">

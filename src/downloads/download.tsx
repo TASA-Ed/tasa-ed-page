@@ -1,6 +1,6 @@
 import React from "react";
-import { LuFileDown, LuDisc3, LuFileArchive, LuFileDigit } from "react-icons/lu";
-import { FiGithub, FiArchive } from 'react-icons/fi'
+import { LuDisc3, LuFileArchive, LuFileDigit, LuFileDown } from "react-icons/lu";
+import { FiArchive, FiGithub } from 'react-icons/fi'
 
 import Footer from "../footer.tsx";
 import Header from "../header.tsx";
@@ -44,18 +44,18 @@ const FallbackIcon: React.FC<{ size: number }> = ({size}) => {
     );
 };
 
-function Icon(it: DownloadItem,thumbSize: number): React.ReactNode {
+function Icon(it: DownloadItem, thumbSize: number): React.ReactNode {
     switch (it.thumbnail) {
         case "github":
-            return (<FiGithub size={thumbSize * 0.65} />)
+            return (<FiGithub size={thumbSize * 0.65}/>)
         case "archive":
-            return (<FiArchive size={thumbSize * 0.65} />)
+            return (<FiArchive size={thumbSize * 0.65}/>)
         case "iso":
-            return (<LuDisc3 size={thumbSize * 0.65} />)
+            return (<LuDisc3 size={thumbSize * 0.65}/>)
         case "zip":
-            return (<LuFileArchive size={thumbSize * 0.65} />)
+            return (<LuFileArchive size={thumbSize * 0.65}/>)
         case "01":
-            return (<LuFileDigit size={thumbSize * 0.65} />)
+            return (<LuFileDigit size={thumbSize * 0.65}/>)
         case undefined:
             return (
                 <div className="text-slate-500 dark:text-slate-300">
@@ -98,74 +98,72 @@ export default function DownloadListPage(
     }
 
     return (
-        <div id="hero" className={`max-w-5xl mx-auto ${className}`}>
+        <div className={`bg-white dark:bg-zinc-700`}>
             <Header/>
+            <div id="hero" className={`max-w-5xl mx-auto ${className}`}>
+                {normalizedGroups.map((g) => (
+                    <section key={g.id} className="px-8 pt-[var(--studio-nav-height)] mb-6">
+                        {g.title && (
+                            <header className="mb-4">
+                                <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100">{g.title}</h2>
+                                <p className="text-sm text-slate-500">{g.items.length} 个项目</p>
+                            </header>
+                        )}
 
-            {normalizedGroups.map((g) => (
-                <section key={g.id} className="px-8 pt-[var(--studio-nav-height)] mb-6">
-                    {g.title && (
-                        <header className="mb-4">
-                            <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100">{g.title}</h2>
-                            <p className="text-sm text-slate-500">{g.items.length} 个项目</p>
-                        </header>
-                    )}
+                        <div className="space-y-3">
+                            {g.items.map((it) => {
+                                const thumbSize = typeof thumbnailSize === "number" ? thumbnailSize : 56;
 
-                    <div className="space-y-3">
-                        {g.items.map((it) => {
-                            const thumbSize = typeof thumbnailSize === "number" ? thumbnailSize : 56;
-
-                            return (
-                                <a
-                                    key={it.id}
-                                    href={it.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={`group block bg-white/80 dark:bg-slate-800/60 shadow-sm hover:shadow-md transition rounded-2xl overflow-hidden ${cardClassName}`}
-                                >
-                                    <div className="flex gap-4 items-center p-4 md:p-5">
-                                        <div className="flex-shrink-0"
-                                            style={{width: thumbSize, height: thumbSize}}
-                                        >
-                                            <div
-                                                className="w-full h-full rounded-lg overflow-hidden bg-slate-50 dark:bg-slate-700 flex items-center justify-center">
-                                                {Icon(it, thumbSize)}
-                                            </div>
-                                        </div>
-
-                                        <div className="flex-1 min-w-0">
-                                            <div className="flex items-start justify-between gap-3">
-                                                <div className="min-w-0">
-                                                    <div
-                                                        className="text-sm md:text-base font-medium text-slate-900 dark:text-slate-100 truncate">{it.title}</div>
-                                                    {it.description && (
-                                                        <div
-                                                            className="mt-1 text-xs md:text-sm text-slate-500 dark:text-slate-300 truncate">{it.description}</div>
-                                                    )}
-                                                </div>
-
-                                                <div className="flex-shrink-0 ml-3 text-right">
-                                                    {it.time && <div
-                                                        className="text-xs text-slate-500 dark:text-slate-400 pb-2">{it.time}</div>}
-                                                    {it.size && <div
-                                                        className="text-xs text-slate-500 dark:text-slate-400">{it.size}</div>}
-                                                </div>
-                                            </div>
-
-                                            {it.fileName && (
+                                return (
+                                    <a
+                                        key={it.id}
+                                        href={it.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`group block bg-white/80 dark:bg-slate-800/60 shadow-sm hover:shadow-md transition rounded-2xl overflow-hidden ${cardClassName}`}
+                                    >
+                                        <div className="flex gap-4 items-center p-4 md:p-5">
+                                            <div className="flex-shrink-0"
+                                                 style={{width: thumbSize, height: thumbSize}}
+                                            >
                                                 <div
-                                                    className="mt-3 text-xs text-slate-400 truncate">{it.fileName}</div>
-                                            )}
-                                        </div>
-                                    </div>
-                                </a>
-                            );
-                        })}
-                    </div>
-                </section>
-            ))}
+                                                    className="w-full h-full rounded-lg overflow-hidden bg-slate-50 dark:bg-slate-700 flex items-center justify-center">
+                                                    {Icon(it, thumbSize)}
+                                                </div>
+                                            </div>
 
+                                            <div className="flex-1 min-w-0">
+                                                <div className="flex items-start justify-between gap-3">
+                                                    <div className="min-w-0">
+                                                        <div
+                                                            className="text-sm md:text-base font-medium text-slate-900 dark:text-slate-100 truncate">{it.title}</div>
+                                                        {it.description && (
+                                                            <div className="mt-1 text-xs md:text-sm text-slate-500 dark:text-slate-300 line-clamp-4">{it.description}</div>
+                                                        )}
+                                                    </div>
+
+                                                    <div className="flex-shrink-0 ml-3 text-right">
+                                                        {it.time && <div
+                                                            className="text-xs text-slate-500 dark:text-slate-400 pb-2">{it.time}</div>}
+                                                        {it.size && <div
+                                                            className="text-xs text-slate-500 dark:text-slate-400">{it.size}</div>}
+                                                    </div>
+                                                </div>
+
+                                                {it.fileName && (
+                                                    <div
+                                                        className="mt-3 text-xs text-slate-400 truncate">{it.fileName}</div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </a>
+                                );
+                            })}
+                        </div>
+                    </section>
+                ))}
+            </div>
             <Footer/>
         </div>
-
     );
 }

@@ -10,10 +10,20 @@
     <meta property="og:description" content="TASA-Ed 工作室 官网 下载页"/>
     <meta property="og:image" content="https://www.tasaed.top/assets/tasaed.svg"/>
     <meta property="og:url" content="https://www.tasaed.top"/>
+    <style>
+        .background-message {
+            position: fixed;
+            display: flex;
+            z-index: -1;
+            pointer-events: none;
+            color: rgba(0, 0, 0, 0.1);
+            padding: 0.25rem;
+            user-select: none;
+        }
+    </style>
 </head>
 <body>
-<p class="in-load" style="color: rgba(0,0,0,0.1);padding: 0.25rem">若长时间无法加载请清除缓存并刷新页面</p>
-<p class="in-load" style="color: rgba(0,0,0,0.1);padding: 0.25rem">TASA-Ed</p>
+<p class="background-message">若长时间无法加载请清除缓存并刷新页面 - TASA-Ed</p>
 <div id="root"></div>
 <script type="module" src="/src/downloads/main.tsx"></script>
 </body>
