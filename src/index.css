@@ -3,7 +3,25 @@
 @layer base {
     :root {
         --studio-nav-height: 96px;
+        --hero-background-image: url("/assets/subtle-prism.svg");
+        --contact-background-image: url("/assets/scattered-forcefields.svg");
+        @media (prefers-color-scheme: dark) {
+            --hero-background-image: url("/assets/subtle-prism-dark.svg");
+            --contact-background-image: url("/assets/scattered-forcefields-dark.svg");
+        }
     }
+}
+
+.v-title {
+    @apply text-slate-900 dark:text-slate-100;
+}
+
+.home-a {
+    @apply mt-2 inline-flex items-center gap-2 text-sm text-indigo-600 dark:text-indigo-400;
+}
+
+.home-div {
+    @apply rounded-xl p-4 bg-slate-50 shadow dark:bg-zinc-600;
 }
 
 .header-a {

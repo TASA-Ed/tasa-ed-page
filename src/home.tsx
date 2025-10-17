@@ -19,7 +19,7 @@ export default function StudioHome(): JSX.Element {
 
             <main className="w-full">
                 {/* 首屏 */}
-                <section style={{backgroundImage: `url("/assets/subtle-prism.svg")`}} id="hero" className="min-h-screen flex items-center pt-[var(--studio-nav-height)] lg:pt-0">
+                <section style={{backgroundImage: `var(--hero-background-image)`}} id="hero" className="min-h-screen flex items-center pt-[var(--studio-nav-height)] lg:pt-0">
                     <div className="w-[92%] py-2 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
@@ -28,10 +28,10 @@ export default function StudioHome(): JSX.Element {
                             className="space-y-6"
                         >
                             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
-                                <span className="text-purple-600">{constant.name} </span>
-                                工作室
+                                <span className="text-purple-600 dark:text-purple-400">{constant.name} </span>
+                                <span className="v-title">工作室</span>
                             </h1>
-                            <p className="text-slate-600 max-w-xl">
+                            <p className="text-slate-600 dark:text-slate-100 max-w-xl">
                                 成立于 2020 年 12 月 20 日，一个专注于自媒体，软件游戏开发，网站搭建的工作室，而且，我们喜欢开源！
                             </p>
 
@@ -65,38 +65,38 @@ export default function StudioHome(): JSX.Element {
                 </section>
 
                 {/* 联系 */}
-                <section style={{backgroundImage: `url("/assets/scattered-forcefields.svg")`}} id="contact" className="min-h-screen flex items-center bg-slate-50">
+                <section style={{backgroundImage: `var(--contact-background-image)`}} id="contact" className="min-h-screen flex items-center bg-slate-50">
                     <div className="w-[92%] py-2 max-w-4xl mx-auto">
                         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                            <h2 className="text-3xl font-bold mb-2">联系我们</h2>
-                            <p className="text-slate-600 mb-8">想联系我们或一起做点有意思的项目？给我们发邮件或者通过下面的表单快速联系。</p>
+                            <h2 className="text-3xl font-bold mb-2 v-title">联系我们</h2>
+                            <p className="text-slate-600 dark:text-slate-300 mb-8">想联系我们或一起做点有意思的项目？给我们发邮件或者通过下面的表单快速联系。</p>
 
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                                 <div className="space-y-4">
-                                    <div className="rounded-xl p-4 bg-white shadow">
-                                        <h4 className="font-semibold">邮箱</h4>
-                                        <a className="mt-2 inline-flex items-center gap-2 text-sm text-indigo-600" href={`mailto:${constant.email}?subject=合作咨询`}>
+                                    <div className="home-div">
+                                        <h4 className="font-semibold v-title">邮箱</h4>
+                                        <a className="home-a" href={`mailto:${constant.email}?subject=合作咨询`}>
                                             <FiMail size={18} /> {constant.email}
                                         </a>
                                     </div>
 
-                                    <div className="rounded-xl p-4 bg-white shadow">
-                                        <h4 className="font-semibold">GitHub</h4>
-                                        <a className="mt-2 inline-flex items-center gap-2 text-sm text-indigo-600" target="_blank" href={"https://github.com/orgs/TASA-Ed"}>
+                                    <div className="home-div">
+                                        <h4 className="font-semibold v-title">GitHub</h4>
+                                        <a className="home-a" target="_blank" href={"https://github.com/orgs/TASA-Ed"}>
                                             <FiGithub size={18} /> @TASA-Ed
                                         </a>
                                     </div>
 
-                                    <div className="rounded-xl p-4 bg-white shadow">
-                                        <h4 className="font-semibold">QQ群</h4>
-                                        <a className="mt-2 inline-flex items-center gap-2 text-sm text-indigo-600" target="_blank" href={"https://qm.qq.com/cgi-bin/qm/qr?k=meZHnANAtGqxFXNHBnad1m1ms3li_Pgj&jump_from=webapi&authKey=YfabJovSWyCBqhrV7B5VWkVSG5hQTsd19AEvjMTFy2jafZ9goaIlJOm9jh7dv6f/"}>
+                                    <div className="home-div">
+                                        <h4 className="font-semibold v-title">QQ群</h4>
+                                        <a className="home-a" target="_blank" href={"https://qm.qq.com/cgi-bin/qm/qr?k=meZHnANAtGqxFXNHBnad1m1ms3li_Pgj&jump_from=webapi&authKey=YfabJovSWyCBqhrV7B5VWkVSG5hQTsd19AEvjMTFy2jafZ9goaIlJOm9jh7dv6f/"}>
                                             <RiQqLine size={18} /> 597524393
                                         </a>
                                     </div>
                                 </div>
 
                                 <form
-                                    className="rounded-xl p-6 bg-white shadow space-y-4"
+                                    className="rounded-xl p-6 bg-slate-50 shadow dark:bg-zinc-600 space-y-4"
                                     onSubmit={(e) => {
                                         e.preventDefault();
                                         const formData = new FormData(e.currentTarget);
@@ -109,15 +109,15 @@ export default function StudioHome(): JSX.Element {
                                     }}
                                 >
                                     <div>
-                                        <label className="text-sm font-medium">姓名</label>
+                                        <label className="text-sm font-medium dark:text-slate-100">姓名</label>
                                         <input name="name" required className="mt-2 w-full rounded-md border p-2" />
                                     </div>
                                     <div>
-                                        <label className="text-sm font-medium">邮箱</label>
+                                        <label className="text-sm font-medium dark:text-slate-100">邮箱</label>
                                         <input name="email" type="email" required className="mt-2 w-full rounded-md border p-2" />
                                     </div>
                                     <div>
-                                        <label className="text-sm font-medium">内容</label>
+                                        <label className="text-sm font-medium dark:text-slate-100">内容</label>
                                         <textarea name="message" rows={5} required className="mt-2 w-full rounded-md border p-2" />
                                     </div>
 

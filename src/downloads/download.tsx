@@ -136,7 +136,7 @@ export default function DownloadListPage(
                                                 <div className="flex items-start justify-between gap-3">
                                                     <div className="min-w-0">
                                                         <div
-                                                            className="text-sm md:text-base font-medium text-slate-900 dark:text-slate-100 truncate">{it.title}</div>
+                                                            className="text-sm md:text-base font-medium v-title truncate">{it.title}</div>
                                                         {it.description && (
                                                             <div className="mt-1 text-xs md:text-sm text-slate-500 dark:text-slate-300 line-clamp-4">{it.description}</div>
                                                         )}

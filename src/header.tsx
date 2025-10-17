@@ -18,7 +18,7 @@ export default function Header() {
                             aria-label={"返回顶部"}
                         >
                             <img width="26px" height="26px" src="/assets/tasaed.svg" alt="Logo" />
-                            <span className="pl-1 text-slate-900 dark:text-slate-100">{constant.name}</span>
+                            <span className="pl-1 v-title">{constant.name}</span>
                             <span className="text-indigo-600 dark:text-indigo-400"> 工作室</span>
                         </button>
                         <div className="hidden md:flex items-center gap-1 text-sm text-slate-700">
