@@ -33,8 +33,6 @@ export type DownloadListProps = {
     cardClassName?: string;
     /** 缩略图大小（像素或 tailwind 尺寸，比如 16/24/32/40/48/56/64） */
     thumbnailSize?: number;
-    /** 点击下载前的回调（例如上报事件），返回 false 可阻止跳转 */
-    onBeforeDownload?: (item: DownloadItem) => boolean | void;
 };
 
 const FallbackIcon: React.FC<{ size: number }> = ({size}) => {
@@ -98,7 +96,7 @@ export default function DownloadListPage(
     }
 
     return (
-        <div className={`bg-white dark:bg-zinc-700`}>
+        <div className={`v-background-color`}>
             <Header/>
             <div id="hero" className={`max-w-5xl mx-auto ${className}`}>
                 {normalizedGroups.map((g) => (
@@ -121,6 +119,7 @@ export default function DownloadListPage(
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className={`group block bg-white/80 dark:bg-slate-800/60 shadow-sm hover:shadow-md transition rounded-2xl overflow-hidden ${cardClassName}`}
+                                        aria-label={`下载 ${it.title}`}
                                     >
                                         <div className="flex gap-4 items-center p-4 md:p-5">
                                             <div className="flex-shrink-0"
