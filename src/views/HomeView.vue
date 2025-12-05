@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { FiArrowDown, FiMail, FiGithub, FiUsers } from 'vue-icons-plus/fi'
+import { scrollTo } from "@/main.ts";
 
 const email = ref('')
 const message = ref('')
@@ -67,6 +68,7 @@ const sendEmail = () => {
           </a>
           <a
             href="#contact"
+            @click.prevent="scrollTo('contact')"
             class="px-8 py-4 border-2 border-purple-400 text-purple-400 rounded-full font-semibold hover:bg-purple-400/10 transition-all duration-300"
           >
             联系我们
@@ -75,13 +77,17 @@ const sendEmail = () => {
       </div>
 
       <!-- Scroll Indicator -->
-      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a
+        href="#services"
+        @click.prevent="scrollTo('services')"
+        title="跳至主要内容"
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <FiArrowDown color="#BDBDBD"/>
-      </div>
+      </a>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 px-4 bg-slate-900/50">
+    <section id="services" class="py-24 px-4 bg-slate-900/50">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
@@ -115,7 +121,7 @@ const sendEmail = () => {
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 relative">
+    <section id="contact" class="py-24 px-4 relative">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
@@ -147,6 +153,7 @@ const sendEmail = () => {
                 required
                 placeholder="example@example.com"
                 class="home-input"
+                autocomplete="email"
               />
             </div>
 
@@ -166,6 +173,7 @@ const sendEmail = () => {
 
             <button
               type="submit"
+              title="发送邮件"
               class="w-full px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105"
             >
               发送消息

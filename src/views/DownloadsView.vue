@@ -3,7 +3,8 @@ import { ref } from 'vue'
 import downloadGroups from '../data/downloadGroups.json'
 import { FiDownload, FiCalendar, FiArchive, FiGithub, FiFile, FiDisc } from 'vue-icons-plus/fi'
 import { GoFileZip, GoFileBinary, GoFile } from 'vue-icons-plus/go'
-import type {IconType} from "vue-icons-plus";
+import type { IconType } from "vue-icons-plus";
+import { scrollTo } from "@/main.ts";
 
 interface DownloadItem {
   id: string
@@ -65,13 +66,16 @@ const formatTime = (time: string) => {
         <div
           v-for="group in groups"
           :key="group.id"
+          :id="group.title"
           class="group-section"
         >
           <!-- Group Title -->
-          <h2 class="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-            <span class="w-2 h-8 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full"></span>
-            {{ group.title }}
-          </h2>
+          <a :href="'#' + group.title" @click.prevent="scrollTo(group.title)">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <span class="w-2 h-8 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full"></span>
+              {{ group.title }}
+            </h2>
+          </a>
 
           <!-- Download Items -->
           <div class="space-y-4">
