@@ -31,6 +31,7 @@ onUnmounted(() => {
         <!-- Logo / Studio Name -->
         <button
           @click="scrollToTop"
+          title="返回顶部"
           class="px-1.5 py-1.5 text-xl font-bold rounded-xl hover:bg-purple-400/10 text-white hover:text-purple-400 transition-colors duration-300 flex items-center gap-2"
         >
           <img width="35px" height="35px" src="/assets/tasaed.svg" alt="Logo"/>
@@ -82,6 +83,7 @@ onUnmounted(() => {
 
         <!-- Mobile Menu Button -->
         <button
+          :title="isMobileMenuOpen ? '关闭' : '菜单'"
           @click="isMobileMenuOpen = !isMobileMenuOpen"
           class="md:hidden text-white p-2 rounded-md hover:bg-purple-400/10 duration-300"
         >

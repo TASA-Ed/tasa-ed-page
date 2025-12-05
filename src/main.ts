@@ -1,11 +1,28 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
-import App from './App.vue'
+import { type App, createApp } from 'vue'
+import appPage from './App.vue'
 import router from './router'
 
-const app = createApp(App)
+export const scrollTo = (id:string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth', // 平滑滚动
+      block: 'start'      // 滚动到元素顶部
+    });
+  }
+};
 
-app.use(router)
+let app: App<Element>;
 
-app.mount('#app')
+function mountApp() {
+  if (app) {
+    app.unmount()
+  }
+  app = createApp(appPage)
+  app.use(router)
+  app.mount('#app')
+}
+
+mountApp();
