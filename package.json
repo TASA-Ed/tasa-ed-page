@@ -31,7 +31,7 @@
     "rollup-plugin-visualizer": "^6.0.5",
     "tailwindcss": "^4.1.17",
     "typescript": "~5.9.3",
-    "vite": "npm:rolldown-vite@^7.2.8",
+    "vite": "npm:rolldown-vite@^7.2.10",
     "vue-icons-plus": "^0.1.8",
     "vue-tsc": "^3.1.5"
   }
