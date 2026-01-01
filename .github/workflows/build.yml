@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  push:
+    branches: ["master"]
+  workflow_dispatch:
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set pnpm 10
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Set Node.js 24
+        uses: actions/setup-node@v6
+        with:
+          # 选择要使用的 node 版本
+          node-version: 24
+          # 缓存 pnpm 依赖
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install Modules
+        run: pnpm install --frozen-lockfile
+
+      - name: Build on Ubuntu
+        run: pnpm run-p type-check "build-only {@}" --
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v6
+        with:
+          name: dist
+          path: dist/
