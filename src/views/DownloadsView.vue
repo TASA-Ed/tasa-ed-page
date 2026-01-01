@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import downloadGroups from '../data/downloadGroups.json'
-import { FiDownload, FiCalendar, FiArchive, FiGithub, FiFile, FiDisc } from 'vue-icons-plus/fi'
-import { GoFileZip, GoFileBinary, GoFile } from 'vue-icons-plus/go'
-import type { IconType } from "vue-icons-plus";
+import downloadGroups from '@/data/downloadGroups.json'
+import { FiDownload, FiCalendar, FiFile } from 'vue-icons-plus/fi'
 import { scrollTo } from "@/main.ts";
+import IconImg from "@/components/IconImg.vue";
 
 interface DownloadItem {
   id: string
@@ -23,17 +22,6 @@ interface DownloadGroup {
 }
 
 const groups = ref<DownloadGroup[]>(downloadGroups.groups)
-
-const getThumbnailIcon = (thumbnail: string) => {
-  const icons: Record<string, IconType> = {
-    github: FiGithub,
-    archive: FiArchive,
-    zip: GoFileZip,
-    iso: FiDisc,
-    '01': GoFileBinary
-  }
-  return icons[thumbnail] || GoFile;
-}
 
 const formatSize = (size?: string) => {
   return size || ''
@@ -89,7 +77,7 @@ const formatTime = (time: string) => {
                 <div class="flex-1 flex items-start gap-4">
                   <!-- Icon -->
                   <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl flex items-center justify-center text-3xl group-hover/item:scale-110 transition-transform duration-300">
-                    <component :is="getThumbnailIcon(item.thumbnail)" size="40" color="#f8fafc" />
+                    <IconImg :thumbnail="item.thumbnail" />
                   </div>
 
                   <!-- Title and Description -->

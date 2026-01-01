@@ -41,12 +41,18 @@ onUnmounted(() => {
         </button>
 
         <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-1 lg:space-x-2 xl:space-x-3">
+        <div class="hidden md:flex items-center space-x-0.5 cmd:space-x-1 clg:space-x-1.5 lg:space-x-2 xl:space-x-2">
           <a
             class="header-a"
             href="/"
           >
             首页
+          </a>
+          <a
+            class="header-a"
+            href="/blog"
+          >
+            博客
           </a>
           <a
             class="header-a"
@@ -116,6 +122,12 @@ onUnmounted(() => {
           href="/"
         >
           首页
+        </a>
+        <a
+          class="header-a-mobile"
+          href="/blog"
+        >
+          博客
         </a>
         <a
           class="header-a-mobile"

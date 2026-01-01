@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { FiArrowDown, FiMail, FiGithub, FiUsers } from 'vue-icons-plus/fi'
 import { scrollTo } from "@/main.ts";
+import IconImg from "@/components/IconImg.vue";
 
 const email = ref('')
 const message = ref('')
@@ -9,26 +10,28 @@ const emailSent = ref(false)
 
 const services = [
   {
-    icon: '🎮',
+    icon: 'scp-2.5d_icon.png',
     title: 'SCP 2.5D',
     description: '工作室的第一个项目，一款 SCP 基金会题材游戏。'
   },
   {
-    icon: '📱',
-    title: 'SCP 游戏助手',
-    description: '一个整理 SCP 基金会题材游戏资源，教程的软件。于 2022 年停止运营。'
+    icon: 'TwemojiEagle.svg',
+    title: '鹰歌游戏引擎文档',
+    description: '一个关于鹰歌游戏引擎的文档。'
   },
   {
-    icon: '📱',
+    icon: 'miplan_icon.png',
     title: 'Mi 计划',
     description: '一个简单的软件，可以用来做一些笔记，或者记一些账单。'
   },
   {
-    icon: '🎮',
+    icon: 'trophy',
     title: '开源 - 计算机制造商',
     description: '一款经营模拟题材游戏。目前正在开发中。'
   }
 ]
+
+
 
 const sendEmail = () => {
   if (email.value && message.value) {
@@ -107,7 +110,7 @@ const sendEmail = () => {
             class="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 hover:border-purple-500 transition-all duration-300 hover:transform hover:scale-105 group"
           >
             <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-              {{ service.icon }}
+              <IconImg :thumbnail="service.icon" :size=50 />
             </div>
             <h3 class="text-xl font-bold text-white mb-3">
               {{ service.title }}

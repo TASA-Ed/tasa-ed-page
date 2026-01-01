@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-clg: 50rem /* 800px */;
+  --breakpoint-cmd: 49rem /* 784px */;
+}
+
 .header-a {
   @apply px-2 py-2 rounded-xl text-gray-300 hover:text-white hover:bg-purple-400/10 transition-colors duration-200;
 }
