@@ -32,6 +32,7 @@
     "tailwindcss": "^4.1.18",
     "typescript": "~5.9.3",
     "vite": "npm:rolldown-vite@^7.3.0",
+    "vite-plugin-sitemap": "^0.8.2",
     "vue-icons-plus": "^0.1.9",
     "vue-tsc": "^3.2.1"
   }

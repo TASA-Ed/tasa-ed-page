@@ -3,13 +3,29 @@ import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import tailwindcss from '@tailwindcss/vite';
+import Sitemap from 'vite-plugin-sitemap'
 //import { visualizer } from "rollup-plugin-visualizer";
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    tailwindcss()
+    tailwindcss(),
+    Sitemap({
+      hostname: 'https://www.tasaed.top',
+      dynamicRoutes: ['/downloads'],
+      outDir: 'dist',
+      readable: true,
+      lastmod: new Date(),
+      changefreq: 'weekly',
+      priority: 0.8,
+      generateRobotsTxt: true,
+      robots: [{
+        userAgent: '*',
+        allow: '/',
+      }],
+      externalSitemaps: ["https://www.tasaed.top/blog/sitemap-0.xml"]
+    })
     //visualizer({ open:true })
   ],
   server: {
