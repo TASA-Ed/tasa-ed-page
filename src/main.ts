@@ -1,8 +1,8 @@
-import '@/assets/main.css'
+import '@/assets/main.css';
 
-import { type App, createApp } from 'vue'
-import appPage from '@/App.vue'
-import router from '@/router'
+import { type App, createApp } from 'vue';
+import appPage from '@/App.vue';
+import router from '@/router';
 import type { IconType } from "vue-icons-plus";
 import { FiArchive, FiDisc, FiGithub } from "vue-icons-plus/fi";
 import { GoFile, GoFileBinary, GoFileZip, GoTrophy } from "vue-icons-plus/go";
@@ -25,7 +25,7 @@ export function getThumbnailIcon(thumbnail: string): IconType | string {
     iso: FiDisc,
     trophy: GoTrophy,
     '01': GoFileBinary
-  }
+  };
 
   // 图标组件
   if (icons[thumbnail]) {
@@ -38,18 +38,18 @@ export function getThumbnailIcon(thumbnail: string): IconType | string {
   }
 
   // 无
-  return GoFile
+  return GoFile;
 }
 
 let app: App<Element>;
 
 function mountApp() {
   if (app) {
-    app.unmount()
+    app.unmount();
   }
-  app = createApp(appPage)
-  app.use(router)
-  app.mount('#app')
+  app = createApp(appPage);
+  app.use(router);
+  app.mount('#app');
 }
 
 mountApp();

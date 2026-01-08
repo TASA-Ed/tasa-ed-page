@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { FiArrowDown, FiMail, FiGithub, FiUsers } from 'vue-icons-plus/fi'
+import { ref } from 'vue';
+import { FiArrowDown, FiMail, FiGithub, FiUsers } from 'vue-icons-plus/fi';
 import { scrollTo } from "@/main.ts";
 import IconImg from "@/components/IconImg.vue";
 
-const email = ref('')
-const message = ref('')
-const emailSent = ref(false)
+const email = ref('');
+const message = ref('');
+const emailSent = ref(false);
 
 const services = [
   {
@@ -29,31 +29,33 @@ const services = [
     title: '开源 - 计算机制造商',
     description: '一款经营模拟题材游戏。目前正在开发中。'
   }
-]
-
-
+];
 
 const sendEmail = () => {
   if (email.value && message.value) {
-    const subject = encodeURIComponent('来自官网的咨询')
-    const body = encodeURIComponent(message.value)
-    window.location.href = `mailto:studio@tasaed.top?subject=${subject}&body=${body}`
+    const subject = encodeURIComponent('来自官网的咨询');
+    const body = encodeURIComponent(message.value);
+    window.location.href = `mailto:studio@tasaed.top?subject=${subject}&body=${body}`;
 
-    emailSent.value = true
+    emailSent.value = true;
     setTimeout(() => {
       emailSent.value = false
       email.value = ''
       message.value = ''
-    }, 3000)
+    }, 3000);
   }
-}
+};
 </script>
 
 <template>
   <main>
-    <!-- Hero Section -->
-    <section id="hero"
-             class="min-h-screen flex items-center justify-center px-4 pt-0 relative overflow-hidden">
+    <!-- 背景 -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+    </div>
+    <!-- 主内容 -->
+    <section id="hero" class="min-h-screen flex items-center justify-center px-4 pt-0 relative overflow-hidden">
       <div class="max-w-5xl mx-auto text-center relative z-10">
         <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
           <span class="bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">TASA-Ed</span>
@@ -79,7 +81,7 @@ const sendEmail = () => {
         </div>
       </div>
 
-      <!-- Scroll Indicator -->
+      <!-- 箭头 -->
       <a
         href="#services"
         @click.prevent="scrollTo('services')"
@@ -89,7 +91,7 @@ const sendEmail = () => {
       </a>
     </section>
 
-    <!-- Services Section -->
+    <!-- 项目 -->
     <section id="services" class="py-24 px-4 bg-slate-900/50">
       <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
@@ -123,7 +125,7 @@ const sendEmail = () => {
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- 联系 -->
     <section id="contact" class="py-24 px-4 relative">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-16">
@@ -229,5 +231,9 @@ const sendEmail = () => {
   50% {
     opacity: 0.5;
   }
+}
+
+.animate-pulse {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 </style>

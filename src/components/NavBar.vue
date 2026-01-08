@@ -1,25 +1,25 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
-import { FiChevronLeft, FiMenu } from 'vue-icons-plus/fi'
+import { onMounted, onUnmounted, ref } from 'vue';
+import { FiChevronLeft, FiMenu } from 'vue-icons-plus/fi';
 
-const isScrolled = ref(false)
-const isMobileMenuOpen = ref(false)
+const isScrolled = ref(false);
+const isMobileMenuOpen = ref(false);
 
 const scrollToTop = () => {
-  window.scrollTo({top: 0, behavior: 'smooth'})
-}
+  window.scrollTo({top: 0, behavior: 'smooth'});
+};
 
 const handleScroll = () => {
-  isScrolled.value = window.scrollY > 50
-}
+  isScrolled.value = window.scrollY > 50;
+};
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-})
+  window.addEventListener('scroll', handleScroll);
+});
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <template>

@@ -1,5 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '@/views/HomeView.vue';
+import DownloadsView from '@/views/DownloadsView.vue';
+import NotFoundView from '@/views/NotFoundView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,9 +14,15 @@ const router = createRouter({
     {
       path: '/downloads',
       name: 'downloads',
-      component: () => import('../views/DownloadsView.vue'),
+      component: DownloadsView,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: '404',
+      component: NotFoundView,
+      props: route => ({ path: route.params.pathMatch })
     }
-  ],
-})
+  ]
+});
 
-export default router
+export default router;

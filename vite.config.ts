@@ -3,7 +3,7 @@ import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import tailwindcss from '@tailwindcss/vite';
-import Sitemap from 'vite-plugin-sitemap'
+import Sitemap from 'vite-plugin-sitemap';
 //import { visualizer } from "rollup-plugin-visualizer";
 
 // https://vite.dev/config/
@@ -39,6 +39,7 @@ export default defineConfig({
     },
   },
   build: {
+    target: 'es2020',
     rolldownOptions: {
       output: {
         advancedChunks: {
@@ -53,4 +54,4 @@ export default defineConfig({
       }
     }
   }
-})
+});

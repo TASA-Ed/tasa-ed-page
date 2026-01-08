@@ -15,15 +15,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { getThumbnailIcon } from '@/main.ts'
+import { computed } from 'vue';
+import { getThumbnailIcon } from '@/main.ts';
 
 const props = defineProps<{
   thumbnail: string,
   size?: number
-}>()
+}>();
 
 const size = computed(() => props.size ?? 40);
-const icon = computed(() => getThumbnailIcon(props.thumbnail))
-const isComponent = computed(() => typeof icon.value !== 'string')
+const icon = computed(() => getThumbnailIcon(props.thumbnail));
+const isComponent = computed(() => typeof icon.value !== 'string');
 </script>
