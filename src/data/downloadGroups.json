@@ -95,30 +95,15 @@
           "thumbnail": "01",
           "href": "https://api.tasaed.top/otoe/?otoid=mi64",
           "time": "2025-08-12"
-        }
-      ]
-    },
-    {
-      "id": "script-editor",
-      "title": "剧本编辑器下载",
-      "items": [
-        {
-          "id": "script-editor-a11",
-          "title": "剧本编辑器安卓11适配版",
-          "description": "剧本编辑器安卓11适配版（By TASA-Ed）",
-          "size": "28.2 MB",
-          "thumbnail": "zip",
-          "href": "https://api.tasaed.top/otoe/?otoid=sea11",
-          "time": "2022-02-09"
         },
         {
-          "id": "script-editor-281f",
-          "title": "剧本编辑器 2.8.1f",
-          "description": "剧本编辑器 2.8.1f（By TASA-Ed）",
-          "size": "56.5 MB",
-          "thumbnail": "zip",
-          "href": "https://api.tasaed.top/otoe/?otoid=se281f",
-          "time": "2022-12-16"
+          "id": "software-3",
+          "title": "时间8.0",
+          "description": "时间 v8.0",
+          "size": "5.71 MB",
+          "thumbnail": "01",
+          "href": "https://api.tasaed.top/otoe/?otoid=time8",
+          "time": "2026-01-26"
         }
       ]
     },
