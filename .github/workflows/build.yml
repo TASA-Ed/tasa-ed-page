@@ -32,10 +32,13 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build on Ubuntu
-        run: pnpm run-p type-check "build-only {@}" --
+        run: pnpm vite build
+
+      - name: Post Build
+        run: node ./postbuild.js
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v6
         with:
-          name: dist
-          path: dist/
+          name: build
+          path: build/

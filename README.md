@@ -1,6 +1,6 @@
 # TASA-Ed 官网
 
-使用 Vue 3，部分页面尚未上线。
+使用 Svelte 5。
 
 ## 配置项目
 
@@ -24,6 +24,18 @@ pnpm dev
 
 ```bash
 pnpm build
+```
+
+### 检查
+
+```bash
+pnpm check
+```
+
+### 清除缓存
+
+```bash
+pnpm prepare
 ```
 
 ### Lint

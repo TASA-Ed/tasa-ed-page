@@ -1,39 +1,36 @@
 {
-  "name": "tasa-ed-page",
-  "version": "2.0.0",
-  "type": "module",
-  "engines": {
-    "node": "^20.19.0 || >=22.12.0"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --build",
-    "lint": "eslint . --fix --cache"
-  },
-  "dependencies": {
-    "vue": "^3.5.27",
-    "vue-router": "^4.6.4"
-  },
-  "devDependencies": {
-    "@tailwindcss/vite": "^4.1.18",
-    "@tsconfig/node22": "^22.0.5",
-    "@types/node": "^25.0.10",
-    "@vitejs/plugin-vue": "^6.0.3",
-    "@vue/eslint-config-typescript": "^14.6.0",
-    "@vue/tsconfig": "^0.8.1",
-    "eslint": "^9.39.2",
-    "eslint-plugin-vue": "~10.7.0",
-    "jiti": "^2.6.1",
-    "npm-run-all2": "^8.0.4",
-    "rollup-plugin-visualizer": "^6.0.5",
-    "tailwindcss": "^4.1.18",
-    "typescript": "~5.9.3",
-    "vite": "npm:rolldown-vite@^7.3.1",
-    "vite-plugin-sitemap": "^0.8.2",
-    "vue-icons-plus": "^0.1.9",
-    "vue-tsc": "^3.2.3"
-  }
+	"name": "tasa-ed-page",
+	"version": "3.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "eslint .",
+		"postbuild": "node ./postbuild.js"
+	},
+	"devDependencies": {
+		"@eslint/compat": "^2.0.1",
+		"@eslint/js": "^9.39.2",
+		"@sveltejs/adapter-static": "^3.0.10",
+		"@sveltejs/kit": "^2.50.1",
+		"@sveltejs/vite-plugin-svelte": "^6.2.4",
+		"@tailwindcss/vite": "^4.1.18",
+		"@types/node": "^25.0.10",
+		"eslint": "^9.39.2",
+		"eslint-plugin-svelte": "^3.14.0",
+		"globals": "^17.1.0",
+		"svelte": "^5.48.2",
+		"svelte-check": "^4.3.5",
+		"tailwindcss": "^4.1.18",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.53.1",
+		"vite": "npm:rolldown-vite@^7.3.1"
+	},
+	"dependencies": {
+		"@lucide/svelte": "^0.563.1"
+	}
 }
