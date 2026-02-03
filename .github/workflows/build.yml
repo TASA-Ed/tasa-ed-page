@@ -50,7 +50,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          source: "/build/*"
+          source: "build/*"
           target: "/tmp/owdy-temp"
           strip_components: 1
           rm: true
