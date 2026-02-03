@@ -42,3 +42,50 @@ jobs:
         with:
           name: build
           path: build/
+
+      - name: Deploy to server via SSH
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          source: "/build/*"
+          target: "/tmp/owdy-temp"
+          strip_components: 1
+          rm: true
+
+      - name: Execute remote commands
+        uses: appleboy/ssh-action@v1
+        env:
+          INDEX_DIR: ${{ secrets.DIR }}
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          envs: INDEX_DIR
+          script: |
+            set -e
+
+            if [ ! -d "/$INDEX_DIR/index/" ]; then exit 1; fi
+
+            # 移动blog到临时目录
+            sudo mv /$INDEX_DIR/index/blog /tmp/
+
+            # 清除目标目录
+            sudo rm -rf /$INDEX_DIR/index/*
+
+            # 移动文件到目标目录
+            sudo mv /tmp/owdy-temp/* /$INDEX_DIR/index/
+            
+            # 移动临时目录到blog
+            sudo mv /tmp/blog /$INDEX_DIR/index/
+
+            # 更改所有者和用户组
+            sudo chown -R 1000:1000 /$INDEX_DIR/index/
+
+            # 清理临时目录
+            rm -rf /tmp/owdy-temp
+
+            echo "Deployment completed successfully!"
