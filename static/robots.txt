@@ -1,3 +1,7 @@
 # allow crawling everything by default
 User-agent: *
 Allow: /
+Disallow: /_app/
+
+Sitemap: https://www.tasaed.top/sitemap-index.xml
+Sitemap: https://www.tasaed.top/blog/sitemap-index.xml
