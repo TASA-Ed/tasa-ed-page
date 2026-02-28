@@ -1,8 +1,12 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": [
-    "typescript"
+    "typescript",
+    "eslint",
+    "unicorn",
+    "oxc"
   ],
+  "jsPlugins": ["eslint-plugin-svelte"],
   "categories": {},
   "rules": {
     "no-undef": "off"
