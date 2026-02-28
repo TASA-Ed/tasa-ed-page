@@ -186,7 +186,7 @@
 
 <section class="mx-auto flex max-w-6xl flex-col gap-6 px-6 pb-10 pt-16">
   <div class="space-y-4">
-    <h1 class="text-4xl font-semibold leading-tight text-slate-900 dark:text-white md:text-5xl">下载中心</h1>
+    <h1 class="text-4xl font-semibold leading-tight md:text-5xl">下载中心</h1>
     <p class="max-w-2xl text-base text-slate-600 dark:text-slate-300">
       获取我们的项目和工具
     </p>

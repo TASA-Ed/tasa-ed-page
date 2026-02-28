@@ -24,7 +24,7 @@
     <div class="max-w-2xl w-full text-center">
         <!-- 404 数字动画 -->
         <div class="mb-8 {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}">
-            <h1 class="text-9xl sm:text-[12rem] font-bold bg-clip-text bg-linear-to-r text-slate-900 dark:text-white">
+            <h1 class="text-9xl sm:text-[12rem] font-semibold leading-tight">
                 404
             </h1>
         </div>

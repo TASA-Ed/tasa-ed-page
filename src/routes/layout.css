@@ -20,3 +20,20 @@ h5,
 h6 {
 	font-family: system-ui, -apple-system, sans-serif;
 }
+
+@keyframes gradient {
+	0%, 100% {
+		background-position: 0 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+}
+
+@layer base {
+	.animate-gradient, h1 {
+		@apply bg-linear-to-r from-slate-900 via-slate-700 to-slate-500 dark:via-slate-300 dark:to-slate-100 dark:hover:text-white/90 bg-clip-text text-transparent;
+		background-size: 200% 200%;
+		animation: gradient 3s ease infinite;
+	}
+}

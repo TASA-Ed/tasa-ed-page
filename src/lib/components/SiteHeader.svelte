@@ -49,7 +49,7 @@
                 onclick={scrollToTop}
         >
             <img width="35px" height="35px" src="/assets/tasaed.svg" alt="Logo" loading="lazy" />
-            <span class="bg-linear-to-r from-slate-900 via-slate-700 to-slate-500 hover:text-black/90 dark:from-slate-500 dark:via-slate-300 dark:to-slate-100 dark:hover:text-white/90 bg-clip-text text-transparent animate-gradient">
+            <span class="animate-gradient">
                 TASA-Ed 工作室
             </span>
         </button>
@@ -167,19 +167,5 @@
 
     .animate-slide-down {
         animation: slide-down 0.3s ease-out;
-    }
-
-    @keyframes gradient {
-        0%, 100% {
-            background-position: 0 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-    }
-
-    .animate-gradient {
-        background-size: 200% 200%;
-        animation: gradient 3s ease infinite;
     }
 </style>

@@ -75,7 +75,7 @@
 <section class="mx-auto flex max-w-6xl flex-col gap-12 px-6 pb-20 pt-16">
     <div class="flex flex-col gap-6">
         <div class="space-y-6">
-            <h1 class="text-4xl font-semibold leading-tight text-slate-900 dark:text-white md:text-6xl">
+            <h1 class="text-4xl font-semibold leading-tight md:text-6xl">
                 TASA-Ed 工作室
             </h1>
             <p class="max-w-2xl text-lg text-slate-600 dark:text-slate-300">
