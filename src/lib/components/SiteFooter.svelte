@@ -45,11 +45,12 @@
             </p>
         </div>
         <a
-          class="transition text-(--primary) font-medium"
+          class="transition text-slate-700 dark:text-slate-300 font-medium flex rounded-md hover:bg-slate-100 dark:hover:bg-slate-900 p-0.5"
           href="https://beian.miit.gov.cn/"
           target="_blank">
-            蒙ICP备2026001527号
-        </a><br />
+            <img src="/assets/icp.webp" alt="ICP" class="px-0.5 object-none" />
+            <span class="px-0.5">蒙ICP备2026001527号-1</span>
+        </a>
         <div class="flex flex-wrap items-center gap-4 text-sm">
             {#each footerBadges as badge, index(index)}
                 <a
