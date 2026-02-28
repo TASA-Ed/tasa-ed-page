@@ -48,7 +48,7 @@
           class="transition text-slate-700 dark:text-slate-300 font-medium flex rounded-md hover:bg-slate-100 dark:hover:bg-slate-900 p-0.5"
           href="https://beian.miit.gov.cn/"
           target="_blank">
-            <img src="/assets/icp.webp" alt="ICP" class="px-0.5 object-none" />
+            <img src="/assets/icp.webp" alt="ICP" class="px-0.5 object-none" loading="lazy" />
             <span class="px-0.5">蒙ICP备2026001527号-1</span>
         </a>
         <div class="flex flex-wrap items-center gap-4 text-sm">
@@ -60,8 +60,7 @@
                         rel="external"
                         target="_blank"
                 >
-                    <img class="rounded-sm" src={badge.icon} data-lazy-src={badge.icon} alt={badge.label}
-                         loading="lazy"/>
+                    <img class="rounded-sm" src={badge.icon} alt={badge.label} loading="lazy"/>
                 </a>
             {/each}
         </div>
