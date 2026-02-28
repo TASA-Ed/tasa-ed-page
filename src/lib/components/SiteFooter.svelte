@@ -23,12 +23,6 @@
       icon: 'https://img.shields.io/badge/lxware-purple?style=flat&color=677fd7&labelColor=eeeeee&logo=1panel&logoColor=4b68ce'
     },
     {
-      id: 'badge-4',
-      label: '萌ICP备20242486号',
-      href: 'https://icp.gov.moe/?keyword=20242486',
-      icon: 'https://img.shields.io/badge/%E8%90%8CICP%E5%A4%87-20242486%E5%8F%B7-blue?style=flat&color=f67280&labelColor=ff165d'
-    },
-    {
       id: 'badge-5',
       label: '鹰歌游戏引擎文档',
       href: 'https://docs-mf.tasaed.top/',
@@ -50,6 +44,12 @@
                 Copyright © 2020 - {currentYear} By TASA-Ed 工作室
             </p>
         </div>
+        <a
+          class="transition text-(--primary) font-medium"
+          href="https://beian.miit.gov.cn/"
+          target="_blank">
+            蒙ICP备2026001527号
+        </a><br />
         <div class="flex flex-wrap items-center gap-4 text-sm">
             {#each footerBadges as badge, index(index)}
                 <a
