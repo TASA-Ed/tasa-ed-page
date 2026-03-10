@@ -1,5 +1,5 @@
-import adapter from '@sveltejs/adapter-static';
-import {vitePreprocess} from '@sveltejs/vite-plugin-svelte';
+import adapter from "@sveltejs/adapter-static";
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,17 +11,17 @@ const config = {
     adapter: adapter({
       // default options are shown. On some platforms
       // these options are set automatically — see below
-      pages: 'build',
-      assets: 'build',
+      pages: "build",
+      assets: "build",
       fallback: undefined,
       precompress: false,
       strict: true
     }),
     prerender: {
-      handleHttpError: 'warn',
-      entries: ['*', '/[...404]']
+      handleHttpError: "warn",
+      entries: ["*", "/[...404]"]
     }
-  },
+  }
 };
 
 export default config;

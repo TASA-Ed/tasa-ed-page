@@ -1,4 +1,4 @@
-import type {Component} from "svelte";
+import type { Component } from "svelte";
 
 export interface Link {
   href: string;
@@ -53,7 +53,5 @@ export interface DownloadGroup {
 }
 
 export function isExternalLink(href: string): boolean {
-  return href.startsWith('http://') ||
-    href.startsWith('https://') ||
-    href.startsWith('//');
+  return href.startsWith("http://") || href.startsWith("https://") || href.startsWith("//");
 }
