@@ -17,17 +17,17 @@
 		"@sveltejs/kit": "^2.53.4",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
 		"@tailwindcss/vite": "^4.2.1",
-		"@types/node": "^25.3.2",
-		"eslint-plugin-svelte": "^3.15.0",
-		"globals": "^17.3.0",
-		"oxlint": "^1.50.0",
-		"svelte": "^5.53.6",
-		"svelte-check": "^4.4.4",
+		"@types/node": "^25.4.0",
+		"eslint-plugin-svelte": "^3.15.2",
+		"globals": "^17.4.0",
+		"oxlint": "^1.52.0",
+		"svelte": "^5.53.9",
+		"svelte-check": "^4.4.5",
 		"tailwindcss": "^4.2.1",
 		"typescript": "^5.9.3",
 		"vite": "npm:rolldown-vite@^7.3.1"
 	},
 	"dependencies": {
-		"@lucide/svelte": "^0.575.0"
+		"@lucide/svelte": "^0.577.0"
 	}
 }
