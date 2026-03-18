@@ -19,18 +19,18 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",
-    "@sveltejs/kit": "^2.53.4",
-    "@sveltejs/vite-plugin-svelte": "^6.2.4",
-    "@tailwindcss/vite": "^4.2.1",
-    "@types/node": "^25.4.0",
+    "@sveltejs/kit": "^2.55.0",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/node": "^25.5.0",
     "eslint-plugin-svelte": "^3.15.2",
     "globals": "^17.4.0",
-    "oxfmt": "^0.37.0",
-    "oxlint": "^1.52.0",
-    "svelte": "^5.53.9",
+    "oxfmt": "^0.41.0",
+    "oxlint": "^1.56.0",
+    "svelte": "^5.54.0",
     "svelte-check": "^4.4.5",
-    "tailwindcss": "^4.2.1",
+    "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
-    "vite": "npm:rolldown-vite@^7.3.1"
+    "vite": "^8.0.0"
   }
 }
