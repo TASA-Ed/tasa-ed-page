@@ -5,6 +5,20 @@ export interface Link {
   label: string;
 }
 
+export interface NavGroup {
+  /** 分组标签，显示为下拉菜单的触发按钮 */
+  label: string;
+  items: Link[];
+}
+
+/** 导航项：单个链接 或 链接分组 */
+export type NavItem = Link | NavGroup;
+
+/** 类型守卫：判断是否为分组 */
+export function isNavGroup(item: NavItem): item is NavGroup {
+  return "items" in item;
+}
+
 export interface Project {
   id: string;
   title: string;
