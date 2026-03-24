@@ -47,6 +47,8 @@ export interface FooterBadge {
   /** 只接受外部链接 */
   href: string;
   icon: string;
+  width: string;
+  height: string;
 }
 
 interface DownloadItem {

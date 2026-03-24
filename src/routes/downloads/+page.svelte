@@ -1,8 +1,8 @@
 <script lang="ts">
-	import {onMount} from 'svelte';
-	import {Archive, Download, FileDigit, Calendar, File, Disc} from '@lucide/svelte';
+	import { onMount } from 'svelte';
+	import { Archive, Calendar, Disc, Download, File, FileDigit } from '@lucide/svelte';
 	import { SiGithub } from '@icons-pack/svelte-simple-icons';
-	import {type DownloadGroup} from '$lib';
+	import { type DownloadGroup } from '$lib';
 
 	const groups: DownloadGroup[] = [
 		{
@@ -180,10 +180,22 @@
     }
 	];
 
+	const desc = "TASA-Ed 工作室 下载中心，获取我们的项目和工具，如 SCP 2.5D，KB4474419 等。";
+	const title = "TASA-Ed 官网 - 下载中心";
+
 	onMount(() => {
-		window.document.title = 'TASA-Ed 官网 - 下载';
+		window.document.title = title;
 	});
 </script>
+
+<svelte:head>
+  <meta
+    name="description"
+    content={desc}
+  />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={desc} />
+</svelte:head>
 
 <section class="mx-auto flex max-w-6xl flex-col gap-6 px-6 pb-10 pt-16">
   <div class="space-y-4">

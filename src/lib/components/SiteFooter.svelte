@@ -8,31 +8,41 @@
 			id: 'badge-1',
 			label: '技术支持：Svelte',
 			href: 'https://svelte.dev',
-			icon: 'https://img.shields.io/badge/Svelte-blue?style=flat&color=ff3e00&labelColor=0a2639&logo=svelte'
+			icon: 'https://img.shields.io/badge/Svelte-blue?style=flat&color=ff3e00&labelColor=0a2639&logo=svelte',
+			width: "69",
+			height: "20"
 		},
 		{
 			id: 'badge-2',
 			label: 'SCP 2.5D',
 			href: 'https://github.com/TASA-Ed/scp25d',
-			icon: 'https://img.shields.io/badge/SCP-2.5D-blue?style=flat-square&color=A8A8A8&labelColor=555555&logo=scpfoundation'
+			icon: 'https://img.shields.io/badge/SCP-2.5D-blue?style=flat-square&color=A8A8A8&labelColor=555555&logo=scpfoundation',
+      width: "85",
+      height: "20"
 		},
 		{
 			id: 'badge-3',
 			label: '凌霞软件',
 			href: 'https://www.lxware.cn?code=tasaed',
-			icon: 'https://img.shields.io/badge/lxware-purple?style=flat&color=677fd7&labelColor=eeeeee&logo=1panel&logoColor=4b68ce'
+			icon: 'https://img.shields.io/badge/lxware-purple?style=flat&color=677fd7&labelColor=eeeeee&logo=1panel&logoColor=4b68ce',
+			width: "71",
+			height: "20"
 		},
 		{
 			id: 'badge-5',
 			label: '鹰歌游戏引擎文档',
 			href: 'https://docs-mf.tasaed.top/',
-			icon: 'https://img.shields.io/badge/Maker-Frame-blue?style=flat-square&color=99CC66&labelColor=FFFF66&logo=github&logoColor=000000'
+			icon: 'https://img.shields.io/badge/Maker-Frame-blue?style=flat-square&color=99CC66&labelColor=FFFF66&logo=github&logoColor=000000',
+			width: "105",
+			height: "20"
 		},
 		{
 			id: 'badge-6',
 			label: '博客：Astro',
 			href: 'https://astro.build',
-			icon: 'https://img.shields.io/badge/Astro-blue?style=plastic&color=bc52ee&labelColor=aecbfa&logo=astro'
+			icon: 'https://img.shields.io/badge/Astro-blue?style=plastic&color=bc52ee&labelColor=aecbfa&logo=astro',
+			width: "63",
+			height: "20"
 		},
 	];
 </script>
@@ -50,14 +60,14 @@
         class="transition text-slate-700 dark:text-slate-300 font-medium flex rounded-md hover:bg-slate-100 dark:hover:bg-slate-900 p-0.5"
         href="https://beian.miit.gov.cn/#/Integrated/index"
         target="_blank">
-        <img src="/assets/icp.webp" alt="ICP" class="px-0.5 object-none" loading="lazy"/>
+        <img src="/assets/icp.webp" alt="ICP" class="px-0.5 object-none" width="20" height="20" loading="lazy"/>
         <span class="px-0.5">蒙ICP备2026001527号-1</span>
       </a>
       <a
         class="transition text-slate-700 dark:text-slate-300 font-medium flex rounded-md hover:bg-slate-100 dark:hover:bg-slate-900 p-0.5"
         href="https://beian.mps.gov.cn/#/query/webSearch?code=15010202151757"
         target="_blank">
-        <img src="/assets/ga.webp" alt="GA" class="px-0.5 object-none" loading="lazy"/>
+        <img src="/assets/ga.webp" alt="GA" class="px-0.5 object-none" width="20" height="20" loading="lazy"/>
         <span class="px-0.5">蒙公网安备15010202151757号</span>
       </a>
     </div>
@@ -70,7 +80,7 @@
           rel="external"
           target="_blank"
         >
-          <img class="rounded-sm" src={badge.icon} alt={badge.label} loading="lazy"/>
+          <img class="rounded-sm" src={badge.icon} alt={badge.label} width={badge.width} height={badge.height} loading="lazy"/>
         </a>
       {/each}
     </div>
