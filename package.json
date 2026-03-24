@@ -15,7 +15,8 @@
     "fmt:check": "oxfmt --check"
   },
   "dependencies": {
-    "@lucide/svelte": "^0.577.0"
+    "@icons-pack/svelte-simple-icons": "^7.2.0",
+    "@lucide/svelte": "^1.0.1"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",
@@ -27,10 +28,10 @@
     "globals": "^17.4.0",
     "oxfmt": "^0.41.0",
     "oxlint": "^1.56.0",
-    "svelte": "^5.54.0",
+    "svelte": "^5.55.0",
     "svelte-check": "^4.4.5",
     "tailwindcss": "^4.2.2",
-    "typescript": "^5.9.3",
-    "vite": "^8.0.1"
+    "typescript": "^6.0.2",
+    "vite": "^8.0.2"
   }
 }
