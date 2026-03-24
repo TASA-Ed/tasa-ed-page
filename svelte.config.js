@@ -17,6 +17,9 @@ const config = {
       precompress: false,
       strict: true
     }),
+    paths: {
+      relative: false
+    },
     prerender: {
       handleHttpError: "warn",
       entries: ["*", "/[...404]"]
