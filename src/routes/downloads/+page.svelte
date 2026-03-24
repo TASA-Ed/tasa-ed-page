@@ -1,6 +1,7 @@
 <script lang="ts">
 	import {onMount} from 'svelte';
-	import {Archive, Download, Github, FileDigit, Calendar, File, Disc} from '@lucide/svelte';
+	import {Archive, Download, FileDigit, Calendar, File, Disc} from '@lucide/svelte';
+	import { SiGithub } from '@icons-pack/svelte-simple-icons';
 	import {type DownloadGroup} from '$lib';
 
 	const groups: DownloadGroup[] = [
@@ -13,7 +14,7 @@
 					title: 'SCP：2.5D GitHub',
 					description: 'SCP：2.5D',
 					href: 'https://github.com/tasa-ed/scp25d/',
-					icon: Github,
+					icon: SiGithub,
 					date: '开发中'
 				},
 				{
@@ -21,7 +22,7 @@
 					title: "SCP：2.5D - SE GitHub",
 					description: "SCP：2.5D 的剧本编辑器版本",
 					href: 'https://github.com/tasa-ed/scp25d-SE/',
-					icon: Github,
+					icon: SiGithub,
 					date: '已归档'
 				},
 				{
@@ -52,7 +53,7 @@
 					id: "makerframe-launcher-source",
 					title: "鹰歌游戏启动器 V2 GitHub",
 					description: "鹰歌游戏启动器 V2 源代码",
-					icon: Github,
+					icon: SiGithub,
 					href: "https://github.com/TASA-Ed/MakerFrameLauncherV2",
 					date: "开发中"
 				},
@@ -78,7 +79,7 @@
 					id: "miplan-source",
 					title: "Mi计划 GitHub",
 					description: "一个简单的软件，可以用来做一些笔记，或者记一些账单",
-					icon: Github,
+					icon: SiGithub,
 					href: "https://github.com/TASA-Ed/iamiplan",
 					date: "开发中"
 				},

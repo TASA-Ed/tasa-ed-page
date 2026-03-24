@@ -1,6 +1,7 @@
 <script lang="ts">
   import {onMount} from 'svelte';
-  import {ArrowUpRight, Github, Mail, Users} from '@lucide/svelte';
+  import {ArrowUpRight, Mail, Users} from '@lucide/svelte';
+  import { SiGithub } from '@icons-pack/svelte-simple-icons';
   import {isExternalLink, type Project, type SocialLink, type Stat} from "$lib";
   import {resolve} from "$app/paths";
 
@@ -22,7 +23,7 @@
       id: 'github',
       label: 'GitHub',
       href: 'https://github.com/TASA-Ed',
-      icon: Github,
+      icon: SiGithub,
       display: '@TASA-Ed'
     },
     {
