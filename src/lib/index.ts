@@ -71,3 +71,65 @@ export interface DownloadGroup {
 export function isExternalLink(href: string): boolean {
   return href.startsWith("http://") || href.startsWith("https://") || href.startsWith("//");
 }
+
+export interface InsertedAt {
+  __type: string;
+  iso: string;
+}
+
+export interface Comment {
+  nick: string;
+  ip?: string;
+  updatedAt: string;
+  objectId: string;
+  mail: string;
+  ua: string;
+  insertedAt: InsertedAt;
+  createdAt: string;
+  pid?: string;
+  link: string;
+  comment: string;
+  url: string;
+  QQAvatar?: string;
+  rid?: string;
+}
+
+export function getBrowserKernelVersion(ua: string): string {
+  const lowerUA = ua.toLowerCase();
+
+  function getVersion(regex: RegExp): string | null {
+    const match = ua.match(regex);
+    return match ? match[1] : null;
+  }
+
+  const edgeVersion =
+    getVersion(/EdgA\/([\d.]+)/) ||
+    getVersion(/Edg\/([\d.]+)/);
+
+  if (edgeVersion) {
+    return `Edge ${edgeVersion}`;
+  }
+
+  const chromeVersion = getVersion(/Chrome\/([\d.]+)/);
+
+  if (chromeVersion) {
+    return `Chrome ${chromeVersion}`;
+  }
+
+  const firefoxVersion = getVersion(/Firefox\/([\d.]+)/);
+  if (firefoxVersion) {
+    return `Firefox ${firefoxVersion}`;
+  }
+
+  const safariVersion = getVersion(/Version\/([\d.]+)/);
+  if (safariVersion && lowerUA.includes("safari")) {
+    return `Safari ${safariVersion}`;
+  }
+
+  const webkitVersion = getVersion(/AppleWebKit\/([\d.]+)/);
+  if (webkitVersion) {
+    return `WebKit ${webkitVersion}`;
+  }
+
+  return "Unknown";
+}
