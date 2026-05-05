@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { Archive, Calendar, Disc, Download, File, FileDigit } from '@lucide/svelte';
+	import { Archive, Calendar, Disc, Download, File, FileDigit } from '@lucide/svelte/icons';
 	import { SiGithub } from '@icons-pack/svelte-simple-icons';
 	import { type DownloadGroup } from '$lib';
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { ArrowUpRight, Mail, Users } from '@lucide/svelte';
+	import { ArrowUpRight, Mail, Users } from '@lucide/svelte/icons';
 	import { SiGithub } from '@icons-pack/svelte-simple-icons';
 	import { isExternalLink, type Project, type SocialLink, type Stat } from "$lib";
 	import { resolve } from "$app/paths";
