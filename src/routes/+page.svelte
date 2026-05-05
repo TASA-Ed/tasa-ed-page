@@ -98,11 +98,12 @@
     <div class="flex flex-wrap items-center gap-4">
       <a
         class="inline-flex cursor-pointer items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-slate-700 motion-reduce:transition-none dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
-        href="#work"
-        title="查看作品"
-        aria-label="查看作品"
+        href="https://www.tasaed.top/blog/"
+        target="_blank"
+        title="查看博客"
+        aria-label="查看博客"
       >
-        查看作品
+        查看博客
         <ArrowUpRight class="h-4 w-4" aria-hidden="true"/>
       </a>
       <a

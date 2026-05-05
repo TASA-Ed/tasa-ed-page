@@ -1,18 +1,36 @@
 <script lang="ts">
     import {resolve} from '$app/paths';
     import {isExternalLink, isNavGroup, type Link, type NavItem} from '$lib';
-    import { ChartNoAxesGantt } from '@lucide/svelte';
+    import { ChartNoAxesGantt } from '@lucide/svelte/icons';
+    import { fade, slide } from 'svelte/transition';
 
     const navLinks: NavItem[] = [
-        {label: '首页', href: ''},
-        {label: '博客', href: 'https://www.tasaed.top/blog/'},
-        {label: '下载', href: 'downloads'},
-        {label: 'Q群', href: 'https://qm.qq.com/cgi-bin/qm/qr?k=meZHnANAtGqxFXNHBnad1m1ms3li_Pgj&jump_from=webapi&authKey=YfabJovSWyCBqhrV7B5VWkVSG5hQTsd19AEvjMTFy2jafZ9goaIlJOm9jh7dv6f/'},
+        {
+            label: '页面',
+            items: [
+                {label: '首页', href: ''},
+                {label: '下载', href: 'downloads'},
+                {label: '剧本留言簿备份', href: 'se-comments-backup'},
+            ]
+        },
+        {
+            label: '链接',
+            items: [
+                {label: '博客', href: 'https://www.tasaed.top/blog/'},
+                {
+                    label: 'Q群',
+                    href: 'https://qm.qq.com/cgi-bin/qm/qr?k=meZHnANAtGqxFXNHBnad1m1ms3li_Pgj&jump_from=webapi&authKey=YfabJovSWyCBqhrV7B5VWkVSG5hQTsd19AEvjMTFy2jafZ9goaIlJOm9jh7dv6f/'
+                },
+            ]
+        },
         {
             label: 'Wiki',
             items: [
                 {label: 'PHP-API', href: 'https://wiki.tasaed.top/wiki/api.html'},
-                {label: '常见问题', href: 'https://wiki.tasaed.top/wiki/ourwebsite.html#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98'},
+                {
+                    label: '常见问题',
+                    href: 'https://wiki.tasaed.top/wiki/ourwebsite.html#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98'
+                },
                 {label: '关于我们', href: 'https://wiki.tasaed.top/wiki/tasaed.html'},
             ]
         },
@@ -21,6 +39,7 @@
     let isMenuOpen = $state(false);
     let openGroup = $state<string | null>(null);
     let openMobileGroup = $state<string | null>(null);
+    let hoverTimer: ReturnType<typeof setTimeout> | null = null;
 
     function toggleMenu(): void {
         isMenuOpen = !isMenuOpen;
@@ -46,6 +65,23 @@
 
     function closeDesktopGroup(): void {
         openGroup = null;
+    }
+
+    function handleDesktopGroupEnter(label: string): void {
+        if (hoverTimer) clearTimeout(hoverTimer);
+        openGroup = label;
+    }
+
+    function handleDesktopGroupLeave(): void {
+        hoverTimer = setTimeout(() => {
+            openGroup = null;
+        }, 150);
+    }
+
+    function handleDesktopKeydown(e: KeyboardEvent): void {
+        if (e.key === 'Escape' && openGroup) {
+            openGroup = null;
+        }
     }
 
     function toggleMobileGroup(label: string): void {
@@ -79,7 +115,14 @@
             {#each navLinks as item, index (index)}
                 {#if isNavGroup(item)}
                     <!-- 分组下拉菜单 -->
-                    <div class="relative">
+                    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+                    <div
+                      class="relative"
+                      onmouseenter={() => handleDesktopGroupEnter(item.label)}
+                      onmouseleave={handleDesktopGroupLeave}
+                      onkeydown={handleDesktopKeydown}
+                      role="navigation"
+                    >
                         <button
                           class="flex cursor-pointer items-center gap-1 transition-colors duration-200 hover:text-slate-900 dark:hover:text-white"
                           aria-haspopup="true"
@@ -101,11 +144,10 @@
                         </button>
 
                         {#if openGroup === item.label}
-                            <!-- svelte-ignore a11y_click_events_have_key_events -->
-                            <!-- svelte-ignore a11y_no_static_element_interactions -->
-                            <div class="fixed inset-0 z-10" onclick={closeDesktopGroup}></div>
-
-                            <div class="absolute left-1/2 z-20 mt-2 min-w-36 -translate-x-1/2 overflow-hidden rounded-2xl border border-slate-200/70 bg-white/95 shadow-lg backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/95 animate-slide-down">
+                            <div
+                              class="absolute left-1/2 z-20 mt-2 min-w-36 -translate-x-1/2 overflow-hidden rounded-2xl border border-slate-200/70 bg-white/95 shadow-lg backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/95"
+                              transition:fade={{ duration: 150 }}
+                            >
                                 {#each item.items as link (link.href)}
                                     <a
                                       class="block px-4 py-2.5 text-sm font-medium text-slate-600 transition-colors duration-200 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
@@ -167,7 +209,7 @@
     {#if isMenuOpen}
         <div
           class="mt-4 mx-auto max-w-6xl overflow-hidden rounded-3xl border border-slate-200/70 bg-white/95 shadow-lg backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/95 md:hidden"
-          class:animate-slide-down={isMenuOpen}
+          transition:slide={{ duration: 200 }}
         >
             <nav class="flex flex-col p-4">
                 {#each navLinks as item, index (index)}
@@ -196,7 +238,10 @@
                             </button>
 
                             {#if openMobileGroup === item.label}
-                                <div class="ml-4 mt-1 flex flex-col border-l-2 border-slate-100 pl-2 dark:border-slate-800 animate-slide-down">
+                                <div
+                                  class="ml-4 mt-1 flex flex-col border-l-2 border-slate-100 pl-2 dark:border-slate-800"
+                                  transition:slide={{ duration: 200 }}
+                                >
                                     {#each item.items as link (link.href)}
                                         <a
                                           class="cursor-pointer rounded-lg px-4 py-2.5 text-sm font-medium text-slate-500 transition-colors duration-200 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
@@ -240,22 +285,7 @@
     <div
       class="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
       onclick={closeMenu}
+      transition:fade={{ duration: 200 }}
     ></div>
 {/if}
 
-<style>
-    @keyframes slide-down {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .animate-slide-down {
-        animation: slide-down 0.3s ease-out;
-    }
-</style>
