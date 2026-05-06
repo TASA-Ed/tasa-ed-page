@@ -14,16 +14,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Set pnpm 10
-        uses: pnpm/action-setup@v4
+      - name: Set pnpm 11
+        uses: pnpm/action-setup@v6
         with:
-          version: 10
+          version: 11
 
-      - name: Set Node.js 24
+      - name: Set Node.js 26
         uses: actions/setup-node@v6
         with:
           # 选择要使用的 node 版本
-          node-version: 24
+          node-version: 26
           # 缓存 pnpm 依赖
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
