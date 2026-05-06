@@ -1,3 +1,14 @@
+<script module lang="ts">
+	const trustedHTML =
+		(globalThis.window as any)?.trustedTypes?.createPolicy('app-html', {
+			createHTML: (s: string) => s
+		});
+
+	function trusted(html: string) {
+		return trustedHTML?.createHTML(html) ?? html;
+	}
+</script>
+
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Reply from '$lib/jsons/reply.json';
@@ -201,7 +212,7 @@
               </div>
 
               <!-- Comment text -->
-              <p class="leading-relaxed text-gray-600 wrap-break-word dark:text-slate-300">{@html thread.root.comment}</p>
+              <p class="leading-relaxed text-gray-600 wrap-break-word dark:text-slate-300">{@html trusted(thread.root.comment)}</p>
             </div>
           </div>
 
@@ -230,7 +241,7 @@
                         {formatDate(reply.createdAt)}
                       </time>
                     </div>
-                    <p class="text-sm leading-relaxed text-gray-500 wrap-break-word dark:text-slate-400">{@html reply.comment}</p>
+                    <p class="text-sm leading-relaxed text-gray-500 wrap-break-word dark:text-slate-400">{@html trusted(reply.comment)}</p>
                   </div>
                 </li>
               {/each}
