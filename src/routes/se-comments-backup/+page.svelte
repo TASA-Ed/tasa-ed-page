@@ -2,7 +2,8 @@
 	import { onMount } from 'svelte';
 	import Reply from '$lib/jsons/reply.json';
 	import Comments from '$lib/jsons/comments.json';
-  import { type Comment, getBrowserKernelVersion } from '$lib';
+  import type { Comment } from '$lib';
+	import { getBrowserKernelVersion, getOS } from '$lib/utils';
 
 	// ── State ──────────────────────────────────────────────
 	let comments = $state<Comment[]>([]);
@@ -191,6 +192,9 @@
                 <span class="device-badge rounded-full border border-pink-100 bg-pink-50 px-2 py-0.5 text-xs text-pink-400 dark:border-pink-500/30 dark:bg-pink-500/10 dark:text-pink-300">
                   {getBrowserKernelVersion(thread.root.ua)}
                 </span>
+                <span class="device-badge rounded-full border border-cyan-100 bg-cyan-50 px-2 py-0.5 text-xs text-cyan-400 dark:border-cyan-500/30 dark:bg-cyan-500/10 dark:text-cyan-300">
+                  {getOS(thread.root.ua)}
+                </span>
                 <time class="ml-auto text-xs text-gray-300 dark:text-slate-500">
                   {formatDate(thread.root.createdAt)}
                 </time>
@@ -218,6 +222,9 @@
                       </span>
                       <span class="rounded-full border border-purple-100 bg-purple-50 px-1.5 py-0.5 text-xs text-purple-300 dark:border-purple-500/30 dark:bg-purple-500/10 dark:text-purple-300">
                         {getBrowserKernelVersion(reply.ua)}
+                      </span>
+                      <span class="rounded-full border border-teal-100 bg-teal-50 px-1.5 py-0.5 text-xs text-teal-300 dark:border-teal-500/30 dark:bg-teal-500/10 dark:text-teal-300">
+                        {getOS(reply.ua)}
                       </span>
                       <time class="ml-auto text-xs text-gray-300 dark:text-slate-500">
                         {formatDate(reply.createdAt)}

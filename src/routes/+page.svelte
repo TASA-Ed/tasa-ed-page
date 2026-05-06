@@ -2,7 +2,8 @@
 	import { onMount } from 'svelte';
 	import { ArrowUpRight, Mail, Users } from '@lucide/svelte/icons';
 	import { SiGithub } from '@icons-pack/svelte-simple-icons';
-	import { isExternalLink, type Project, type SocialLink, type Stat } from "$lib";
+	import type { Project, SocialLink, Stat } from "$lib";
+	import { isExternalLink } from '$lib/utils';
 	import { resolve } from "$app/paths";
 
 	const email = 'studio@tasaed.top';

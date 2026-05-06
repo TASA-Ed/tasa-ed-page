@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type {FooterBadge} from "$lib";
+	import type { FooterBadge } from "$lib";
 
 	const currentYear = new Date().getFullYear();
 
