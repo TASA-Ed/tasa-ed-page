@@ -1,42 +1,42 @@
 <script lang="ts">
-	import type { FooterBadge } from "$lib";
+  import type { FooterBadge } from "$lib";
 
-	const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear();
 
-	const footerBadges: FooterBadge[] = [
-		{
-			id: 'badge-1',
-			label: '技术支持：Svelte',
-			href: 'https://svelte.dev',
-			icon: 'https://img.shields.io/badge/Svelte-18181b?style=flat&logo=svelte&logoColor=ffffff',
-			width: "63",
-			height: "20"
-		},
-		{
-			id: 'badge-2',
-			label: '凌霞软件',
-			href: 'https://www.lxware.cn?code=tasaed',
-			icon: 'https://img.shields.io/badge/lxware-18181b?style=flat&logo=1panel&logoColor=ffffff',
-			width: "65",
-			height: "20"
-		},
-		{
-			id: 'badge-4',
-			label: '鹰歌游戏引擎文档',
-			href: 'https://docs-mf.tasaed.top/',
-			icon: 'https://img.shields.io/badge/Maker--Frame-18181b?style=flat&logo=github&logoColor=ffffff',
-			width: "101",
-			height: "20"
-		},
-		{
-			id: 'badge-3',
-			label: '博客：Astro',
-			href: 'https://astro.build',
-			icon: 'https://img.shields.io/badge/Astro-18181b?style=flat&logo=astro&logoColor=ffffff',
-			width: "57",
-			height: "20"
-		},
-	];
+  const footerBadges: FooterBadge[] = [
+    {
+      id: "badge-1",
+      label: "技术支持：Svelte",
+      href: "https://svelte.dev",
+      icon: "https://img.shields.io/badge/Svelte-18181b?style=flat&logo=svelte&logoColor=ffffff",
+      width: "63",
+      height: "20"
+    },
+    {
+      id: "badge-2",
+      label: "凌霞软件",
+      href: "https://www.lxware.cn?code=tasaed",
+      icon: "https://img.shields.io/badge/lxware-18181b?style=flat&logo=1panel&logoColor=ffffff",
+      width: "65",
+      height: "20"
+    },
+    {
+      id: "badge-4",
+      label: "鹰歌游戏引擎文档",
+      href: "https://docs-mf.tasaed.top/",
+      icon: "https://img.shields.io/badge/Maker--Frame-18181b?style=flat&logo=github&logoColor=ffffff",
+      width: "101",
+      height: "20"
+    },
+    {
+      id: "badge-3",
+      label: "博客：Astro",
+      href: "https://astro.build",
+      icon: "https://img.shields.io/badge/Astro-18181b?style=flat&logo=astro&logoColor=ffffff",
+      width: "57",
+      height: "20"
+    }
+  ];
 </script>
 
 <footer class="border-t border-zinc-200/50 py-10 dark:border-zinc-800/50">

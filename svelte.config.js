@@ -27,12 +27,18 @@ const config = {
     csp: {
       mode: "hash",
       directives: {
-        'default-src': ['self'],
-        'img-src': ['self', 'data:', 'https://img.shields.io', 'https://ubuyaolan.github.io', 'https://img.t.sinajs.cn'],
-        'script-src': ['self', 'unsafe-inline'],
-        'style-src': ['self', 'unsafe-inline'],
-        'require-trusted-types-for': ["script"],
-        'trusted-types': ['svelte-trusted-html', 'app-html']
+        "default-src": ["self"],
+        "img-src": [
+          "self",
+          "data:",
+          "https://img.shields.io",
+          "https://ubuyaolan.github.io",
+          "https://img.t.sinajs.cn"
+        ],
+        "script-src": ["self", "unsafe-inline"],
+        "style-src": ["self", "unsafe-inline"],
+        "require-trusted-types-for": ["script"],
+        "trusted-types": ["svelte-trusted-html", "app-html"]
       }
     }
   }

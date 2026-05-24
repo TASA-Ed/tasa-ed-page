@@ -10,6 +10,6 @@ export default defineConfig({
     open: true // 启动后自动打开浏览器
   },
   optimizeDeps: {
-    include: ['@lucide/svelte', '@icons-pack/svelte-simple-icons']
+    include: ["@lucide/svelte", "@icons-pack/svelte-simple-icons"]
   }
 });
