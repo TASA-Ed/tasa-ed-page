@@ -211,7 +211,7 @@
     <div class="space-y-4">
       <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div class="space-y-2">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">分类</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 dark:text-slate-300">分类</p>
           <h2 class="text-2xl font-semibold text-slate-900 dark:text-white md:text-3xl">{group.title}</h2>
         </div>
       </div>
@@ -233,7 +233,7 @@
             </div>
 
             <div class="flex flex-col items-end gap-3 sm:flex-row sm:items-center">
-              <div class="flex flex-wrap items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+              <div class="flex flex-wrap items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
                 <span
                   class="flex gap-1 rounded-full border border-slate-200/80 px-3 py-1 dark:border-slate-700/80"><Calendar class="h-4 w-4 text-slate-700 dark:text-slate-200" aria-hidden="true"/>{item.date}</span>
                 {#if item.size}

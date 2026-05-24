@@ -47,7 +47,7 @@
       <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
         页面未找到
       </h2>
-      <p class="text-lg text-slate-500 dark:text-slate-400 mb-2">
+      <p class="text-lg text-slate-600 dark:text-slate-300 mb-2">
         很抱歉，我们找不到您要访问的页面。
       </p>
     </div>

@@ -16,7 +16,7 @@
 			id: 'badge-2',
 			label: 'SCP 2.5D',
 			href: 'https://github.com/TASA-Ed/scp25d',
-			icon: 'https://img.shields.io/badge/SCP-2.5D-blue?style=flat-square&color=A8A8A8&labelColor=555555&logo=scpfoundation',
+			icon: 'https://img.shields.io/badge/SCP-2.5D-blue?style=flat&color=A8A8A8&labelColor=555555&logo=scpfoundation',
       width: "85",
       height: "20"
 		},
@@ -29,18 +29,18 @@
 			height: "20"
 		},
 		{
-			id: 'badge-5',
+			id: 'badge-4',
 			label: '鹰歌游戏引擎文档',
 			href: 'https://docs-mf.tasaed.top/',
-			icon: 'https://img.shields.io/badge/Maker-Frame-blue?style=flat-square&color=99CC66&labelColor=FFFF66&logo=github&logoColor=000000',
+			icon: 'https://img.shields.io/badge/Maker-Frame-blue?style=flat&color=99CC66&labelColor=FFFF66&logo=github&logoColor=000000',
 			width: "105",
 			height: "20"
 		},
 		{
-			id: 'badge-6',
+			id: 'badge-5',
 			label: '博客：Astro',
 			href: 'https://astro.build',
-			icon: 'https://img.shields.io/badge/Astro-blue?style=plastic&color=bc52ee&labelColor=aecbfa&logo=astro',
+			icon: 'https://img.shields.io/badge/Astro-blue?style=falt&color=bc52ee&labelColor=aecbfa&logo=astro',
 			width: "63",
 			height: "20"
 		},

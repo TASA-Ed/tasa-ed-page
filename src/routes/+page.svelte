@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { ArrowUpRight, Mail, Users } from '@lucide/svelte/icons';
-	import { SiGithub } from '@icons-pack/svelte-simple-icons';
+	import { ArrowUpRight, Mail } from '@lucide/svelte/icons';
+	import { SiGithub, SiQq } from '@icons-pack/svelte-simple-icons';
 	import type { Project, SocialLink, Stat } from "$lib";
 	import { isExternalLink } from '$lib/utils';
 	import { resolve } from "$app/paths";
@@ -27,7 +27,7 @@
 			id: 'qq',
 			label: 'QQ',
 			href: 'https://qm.qq.com/cgi-bin/qm/qr?k=meZHnANAtGqxFXNHBnad1m1ms3li_Pgj&jump_from=webapi&authKey=YfabJovSWyCBqhrV7B5VWkVSG5hQTsd19AEvjMTFy2jafZ9goaIlJOm9jh7dv6f/',
-			icon: Users,
+			icon: SiQq,
 			display: '597524393'
 		}
 	];
@@ -44,7 +44,7 @@
 			id: "project-2",
 			title: '鹰歌游戏引擎文档',
 			href: 'https://docs-mf.tasaed.top',
-			description: '一个关于鹰歌游戏引擎的文档。',
+			description: '鹰歌游戏引擎的社区使用文档、开发指南。',
 			tags: ['游戏引擎', '文档', '公益']
 		},
 		{
@@ -64,9 +64,9 @@
 	];
 
 	const stats: Stat[] = [
-		{id: "stat-1", value: '10+', label: '开源项目'},
+		{id: "stat-1", value: '15+', label: '开源项目'},
 		{id: "stat-2", value: '5 年+', label: '工作室成立时间'},
-		{id: "stat-3", value: '1 周+', label: '平均完成时间'}
+		{id: "stat-3", value: '50000+', label: '累计下载/访问量'}
 	];
 
 	const desc = "TASA-Ed 工作室 官网，成立于 2020 年 12 月 20 日，一个专注于自媒体，软件游戏开发，网站搭建的工作室，而且，我们喜欢开源！";
@@ -93,7 +93,7 @@
         TASA-Ed 工作室
       </h1>
       <p class="max-w-2xl text-lg text-slate-600 dark:text-slate-300">
-        由德二吹风机创立的一个专注于自媒体，软件游戏开发，网站搭建的工作室。而且，我们喜欢开源！
+        由德二吹风机创立的一个专注于自媒体、软件与游戏开发、网站建设的工作室。同时，我们热爱开源！
       </p>
     </div>
     <div class="flex flex-wrap items-center gap-4">
@@ -129,7 +129,7 @@
 </section>
 
 <section id="work" class="mx-auto max-w-6xl px-6 pb-20">
-  <div class="flex flex-col gap-4 pb-10 md:flex-row md:items-end md:justify-between">
+  <div class="flex flex-col gap-4 pb-10 md:flex-row md:items-center md:justify-between">
     <div class="space-y-3">
       <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
         我们一路走来的成就</p>
@@ -158,7 +158,7 @@
                 aria-hidden="true"/>
             </div>
             <p class="text-sm text-slate-600 dark:text-slate-300">{project.description}</p>
-            <div class="flex flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-300">
               {#each project.tags as tag, index (index)}
                 <span class="rounded-full border border-slate-200/80 px-3 py-1 dark:border-slate-700/80">{tag}</span>
               {/each}
@@ -180,7 +180,7 @@
                 aria-hidden="true"/>
             </div>
             <p class="text-sm text-slate-600 dark:text-slate-300">{project.description}</p>
-            <div class="flex flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-300">
               {#each project.tags as tag, index (index)}
                 <span class="rounded-full border border-slate-200/80 px-3 py-1 dark:border-slate-700/80">{tag}</span>
               {/each}
@@ -196,11 +196,11 @@
   <div
     class="grid gap-10 rounded-3xl border border-slate-200/70 bg-white/80 p-10 shadow-sm dark:border-slate-800/70 dark:bg-slate-900/60 md:grid-cols-[1.2fr_1fr]">
     <div class="space-y-4">
-      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">联系我们</p>
+      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 dark:text-slate-300">联系我们</p>
       <h2 class="text-3xl font-semibold text-slate-900 dark:text-white md:text-4xl">
         想联系我们或一起做点有意思的项目？</h2>
       <p class="text-sm text-slate-600 dark:text-slate-300">
-        通过邮件、GitHub 或社交媒体联系我们，我们会在 24 小时内回复。
+        通过邮件、GitHub 或 QQ 群联系我们，我们会在 24 小时内回复。
       </p>
     </div>
     <div

@@ -128,10 +128,10 @@
       <span class="text-lg">✨</span>
     </div>
     <div class="mx-auto mt-4 max-w-xl space-y-2">
-      <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+      <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
         古阳的留言簿部署在 LeanCloud，但是 LeanCloud <a href="https://docs.leancloud.cn/sdk/announcements/sunset-announcement/" target="_blank" rel="noopener noreferrer" class="text-pink-500 underline-offset-2 hover:underline dark:text-pink-400">将于 2027 年 1 月 12 日关停</a>，因此我们将全部留言数据备份于此。
       </p>
-      <p class="text-xs text-slate-400 dark:text-slate-500">
+      <p class="text-xs text-slate-500 dark:text-slate-400">
         此页面仅供浏览 · 如需原始数据请查看<a href="https://github.com/TASA-Ed/tasa-ed-page/tree/master/src/lib/jsons/" target="_blank" rel="noopener noreferrer" class="text-pink-500 underline-offset-2 hover:underline dark:text-pink-400">源码仓库</a>
       </p>
     </div>
@@ -206,7 +206,7 @@
                 <span class="device-badge rounded-full border border-cyan-100 bg-cyan-50 px-2 py-0.5 text-xs text-cyan-400 dark:border-cyan-500/30 dark:bg-cyan-500/10 dark:text-cyan-300">
                   {getOS(thread.root.ua)}
                 </span>
-                <time class="ml-auto text-xs text-gray-300 dark:text-slate-500">
+                <time class="ml-auto text-xs text-gray-400 dark:text-slate-400">
                   {formatDate(thread.root.createdAt)}
                 </time>
               </div>
@@ -237,7 +237,7 @@
                       <span class="rounded-full border border-teal-100 bg-teal-50 px-1.5 py-0.5 text-xs text-teal-300 dark:border-teal-500/30 dark:bg-teal-500/10 dark:text-teal-300">
                         {getOS(reply.ua)}
                       </span>
-                      <time class="ml-auto text-xs text-gray-300 dark:text-slate-500">
+                      <time class="ml-auto text-xs text-gray-400 dark:text-slate-400">
                         {formatDate(reply.createdAt)}
                       </time>
                     </div>
