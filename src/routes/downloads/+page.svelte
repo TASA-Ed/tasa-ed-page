@@ -210,11 +210,9 @@
   {#each groups as group (group.id)}
     <div class="space-y-4">
       <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-        <div class="space-y-2">
-          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-600 dark:text-slate-300">分类</p>
-          <h2 class="text-2xl font-semibold text-slate-900 dark:text-white md:text-3xl">{group.title}</h2>
-        </div>
+        <h2 class="text-2xl font-semibold text-slate-900 dark:text-white md:text-3xl">{group.title}</h2>
       </div>
+      <hr class="border-t border-slate-200/60 dark:border-slate-700/60" />
 
       <div class="grid gap-4">
         {#each group.items as item (item.id)}

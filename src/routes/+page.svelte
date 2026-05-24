@@ -56,10 +56,10 @@
 		},
 		{
 			id: "project-4",
-			title: '开源 - 计算机制造商',
-			href: '#',
-			description: '一款经营模拟题材游戏。目前正在开发中。',
-			tags: ['游戏', '模拟']
+			title: 'NanoYunhu',
+			href: 'https://github.com/TASA-Ed/nanoyunhu',
+			description: 'NanoYunHu，无头云湖（聊天软件）',
+			tags: ['应用', '协议端']
 		}
 	];
 
@@ -108,33 +108,32 @@
         <ArrowUpRight class="h-4 w-4" aria-hidden="true"/>
       </a>
       <a
-        class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition-colors duration-200 hover:border-slate-900 hover:text-slate-900 motion-reduce:transition-none dark:border-slate-700 dark:text-slate-200 dark:hover:border-white dark:hover:text-white"
+        class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-slate-300 bg-slate-50 px-6 py-3 text-sm font-semibold text-slate-700 transition-colors duration-200 hover:border-slate-900 hover:bg-slate-100 hover:text-slate-900 motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-800/50 dark:text-slate-200 dark:hover:border-white dark:hover:bg-slate-800 dark:hover:text-white"
         href="#contact"
         title="联系我们"
         aria-label="联系我们"
       >
         联系我们
+        <Mail class="h-4 w-4" aria-hidden="true"/>
       </a>
     </div>
   </div>
   <div
-    class="grid gap-6 rounded-3xl border border-slate-200/70 bg-white/80 p-6 text-sm text-slate-600 shadow-sm dark:border-slate-800/70 dark:bg-slate-900/60 dark:text-slate-300 md:grid-cols-3">
+    class="grid divide-x divide-slate-200/60 rounded-3xl border border-slate-200/70 bg-white/80 p-6 text-sm shadow-sm dark:divide-slate-700/60 dark:border-slate-800/70 dark:bg-slate-900/60 md:grid-cols-3">
     {#each stats as item(item.id)}
-      <div class="space-y-2 space-x-4">
+      <div class="space-y-2 px-6">
         <p class="text-2xl font-semibold text-slate-900 dark:text-white">{item.value}</p>
-        <p>{item.label}</p>
+        <p class="font-medium text-slate-500 dark:text-slate-400">{item.label}</p>
       </div>
     {/each}
   </div>
 </section>
 
 <section id="work" class="mx-auto max-w-6xl px-6 pb-20">
-  <div class="flex flex-col gap-4 pb-10 md:flex-row md:items-center md:justify-between">
-    <div class="space-y-3">
-      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
-        我们一路走来的成就</p>
-      <h2 class="text-3xl font-semibold text-slate-900 dark:text-white md:text-4xl">精选项目</h2>
-    </div>
+  <div class="flex flex-col gap-2 pb-10">
+    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
+      我们一路走来的成就</p>
+    <h2 class="text-3xl font-semibold text-slate-900 dark:text-white md:text-4xl">精选项目</h2>
     <p class="max-w-xl text-sm text-slate-600 dark:text-slate-300">
       从游戏到网站，涵盖多方面的项目。
     </p>
@@ -145,20 +144,22 @@
         <a
           title={`${project.title} 项目详情`}
           aria-label={`${project.title} 项目详情`}
-          class="group relative cursor-pointer overflow-hidden rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm transition-colors duration-200 hover:border-slate-400 motion-reduce:transition-none dark:border-slate-800/70 dark:bg-slate-900/60 dark:hover:border-slate-600"
+          class="group relative flex flex-col cursor-pointer overflow-hidden rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm transition-all duration-200 hover:border-slate-400 hover:shadow-md motion-reduce:transition-none dark:border-slate-800/70 dark:bg-slate-900/60 dark:hover:border-slate-600"
           href={project.href}
           rel="external"
           target="_blank"
         >
-          <div class="space-y-3">
-            <div class="flex items-center justify-between text-sm font-semibold text-slate-900 dark:text-white">
-              <span>{project.title}</span>
-              <ArrowUpRight
-                class="h-4 w-4 text-slate-400 transition-colors duration-200 group-hover:text-slate-900 dark:group-hover:text-white"
-                aria-hidden="true"/>
+          <div class="flex flex-1 flex-col justify-between space-y-3">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between text-sm font-semibold text-slate-900 dark:text-white">
+                <span>{project.title}</span>
+                <ArrowUpRight
+                  class="h-4 w-4 text-slate-400 transition-colors duration-200 group-hover:text-slate-900 dark:group-hover:text-white"
+                  aria-hidden="true"/>
+              </div>
+              <p class="text-sm text-slate-600 dark:text-slate-300">{project.description}</p>
             </div>
-            <p class="text-sm text-slate-600 dark:text-slate-300">{project.description}</p>
-            <div class="flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-300">
+            <div class="flex flex-wrap gap-2 pt-1 text-xs text-slate-600 dark:text-slate-300">
               {#each project.tags as tag, index (index)}
                 <span class="rounded-full border border-slate-200/80 px-3 py-1 dark:border-slate-700/80">{tag}</span>
               {/each}
@@ -169,18 +170,20 @@
         <a
           title={`${project.title} 项目详情`}
           aria-label={`${project.title} 项目详情`}
-          class="group relative cursor-pointer overflow-hidden rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm transition-colors duration-200 hover:border-slate-400 motion-reduce:transition-none dark:border-slate-800/70 dark:bg-slate-900/60 dark:hover:border-slate-600"
+          class="group relative flex flex-col cursor-pointer overflow-hidden rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm transition-all duration-200 hover:border-slate-400 hover:shadow-md motion-reduce:transition-none dark:border-slate-800/70 dark:bg-slate-900/60 dark:hover:border-slate-600"
           href={resolve(`/${project.href}`)}
         >
-          <div class="space-y-3">
-            <div class="flex items-center justify-between text-sm font-semibold text-slate-900 dark:text-white">
-              <span>{project.title}</span>
-              <ArrowUpRight
-                class="h-4 w-4 text-slate-400 transition-colors duration-200 group-hover:text-slate-900 dark:group-hover:text-white"
-                aria-hidden="true"/>
+          <div class="flex flex-1 flex-col justify-between space-y-3">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between text-sm font-semibold text-slate-900 dark:text-white">
+                <span>{project.title}</span>
+                <ArrowUpRight
+                  class="h-4 w-4 text-slate-400 transition-colors duration-200 group-hover:text-slate-900 dark:group-hover:text-white"
+                  aria-hidden="true"/>
+              </div>
+              <p class="text-sm text-slate-600 dark:text-slate-300">{project.description}</p>
             </div>
-            <p class="text-sm text-slate-600 dark:text-slate-300">{project.description}</p>
-            <div class="flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-300">
+            <div class="flex flex-wrap gap-2 pt-1 text-xs text-slate-600 dark:text-slate-300">
               {#each project.tags as tag, index (index)}
                 <span class="rounded-full border border-slate-200/80 px-3 py-1 dark:border-slate-700/80">{tag}</span>
               {/each}
