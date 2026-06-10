@@ -23,46 +23,6 @@ const config = {
     prerender: {
       handleHttpError: "warn",
       entries: ["*", "/[...404]"]
-    },
-    csp: {
-      mode: "hash",
-      directives: {
-        "default-src": ["self"],
-        "img-src": [
-          "self",
-          "data:",
-          "https://img.shields.io",
-          "https://ubuyaolan.github.io",
-          "https://img.t.sinajs.cn",
-          "https://www.gstatic.com",
-          "https://cn.bing.com",
-          "https://www.bing.com"
-        ],
-        "script-src": [
-          "self",
-          "unsafe-inline",
-          "https://recaptcha.net/recaptcha/",
-          "https://www.gstatic.com/recaptcha/",
-          "https://www.google.com/recaptcha/",
-          "https://www.recaptcha.net/recaptcha/"
-        ],
-        "frame-src": [
-          "self",
-          "https://www.google.com/recaptcha/",
-          "https://recaptcha.net/recaptcha/",
-          "https://www.recaptcha.net/recaptcha/"
-        ],
-        "connect-src": [
-          "self",
-          "https://www.google.com/recaptcha/",
-          "https://recaptcha.net/recaptcha/",
-          "https://www.recaptcha.net/recaptcha/",
-          "https://api.tasaed.top"
-        ],
-        "style-src": ["self", "unsafe-inline"],
-        "require-trusted-types-for": ["script"],
-        "trusted-types": ["svelte-trusted-html", "app-html"]
-      }
     }
   }
 };
