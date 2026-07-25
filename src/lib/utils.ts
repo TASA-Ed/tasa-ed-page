@@ -82,7 +82,7 @@ export function getOS(ua: string): string {
   }
 
   // 3. iOS（iPhone / iPad / iPod）
-  const iosMatch = ua.match(/CPU (?:iPhone )?OS (\d+)[_](\d+)(?:[_](\d+))?/);
+  const iosMatch = ua.match(/CPU (?:iPhone )?OS (\d+)_(\d+)(?:_(\d+))?/);
   if (iosMatch) {
     const major = iosMatch[1];
     const minor = iosMatch[2];
