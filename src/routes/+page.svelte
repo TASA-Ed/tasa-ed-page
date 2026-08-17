@@ -49,22 +49,22 @@
     },
     {
       id: "project-3",
-      title: "Mi 计划",
-      href: "https://github.com/TASA-Ed/iamiplan",
-      description: "一个简单的软件，可以用来做一些笔记，或者记一些账单。",
-      tags: ["应用"]
-    },
-    {
-      id: "project-4",
       title: "NanoYunhu",
       href: "https://github.com/TASA-Ed/nanoyunhu",
       description: "NanoYunHu，无头云湖（聊天软件）",
       tags: ["应用", "协议端"]
+    },
+    {
+      id: "project-4",
+      title: "历史时代2：DE - LLM Playing Agent",
+      href: "https://github.com/TASA-Ed/aoh2de-llm-playing-agent",
+      description: "让 LLM 游玩 历史时代2：DE。（Agent 端）",
+      tags: ["应用", "AI", "Agent"]
     }
   ];
 
   const stats: Stat[] = [
-    { id: "stat-1", value: "15+", label: "开源项目" },
+    { id: "stat-1", value: "20+", label: "开源项目" },
     { id: "stat-2", value: "5 年+", label: "工作室成立时间" },
     { id: "stat-3", value: "50000+", label: "累计下载/访问量" }
   ];
