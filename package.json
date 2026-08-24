@@ -16,22 +16,22 @@
   },
   "dependencies": {
     "@icons-pack/svelte-simple-icons": "^7.2.0",
-    "@lucide/svelte": "^1.31.0"
+    "@lucide/svelte": "^1.33.0"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.10",
-    "@sveltejs/kit": "^2.70.2",
+    "@sveltejs/kit": "^2.70.3",
     "@sveltejs/vite-plugin-svelte": "^7.3.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^26.2.0",
     "eslint-plugin-svelte": "^3.23.0",
     "globals": "^17.11.0",
-    "oxfmt": "^0.63.0",
-    "oxlint": "^1.78.0",
-    "svelte": "^5.56.9",
+    "oxfmt": "^0.64.0",
+    "oxlint": "^1.79.0",
+    "svelte": "^5.56.10",
     "svelte-check": "^4.7.6",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
-    "vite": "^8.2.1"
+    "vite": "^8.2.2"
   }
 }
