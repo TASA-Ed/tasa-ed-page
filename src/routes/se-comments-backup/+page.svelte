@@ -95,6 +95,7 @@
 
   // ── Load data ──────────────────────────────────────────
   onMount(async () => {
+    window.document.title = title;
     comments = Comments.results.concat(Reply.results);
     loading = false;
     return;
@@ -103,10 +104,6 @@
   const desc =
     "剧本编辑器留言簿的备份，由于 LeanCloud 将于 2027 年 1 月 12 日关停，所以我们备份了剧本编辑器的留言簿。";
   const title = "TASA-Ed 官网 - 剧本留言簿备份";
-
-  onMount(() => {
-    window.document.title = title;
-  });
 </script>
 
 <svelte:head>

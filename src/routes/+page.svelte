@@ -115,7 +115,7 @@
     </div>
   </div>
   <div
-    class="grid divide-x rounded-3xl border border-slate-200/70 bg-white/80 p-6 text-sm shadow-sm dark:divide-slate-700/60 dark:border-slate-800/70 dark:bg-slate-900/60 md:grid-cols-3"
+    class="grid md:divide-x rounded-3xl border border-slate-200/70 bg-white/80 p-6 text-sm shadow-sm dark:divide-slate-700/60 dark:border-slate-800/70 dark:bg-slate-900/60 md:grid-cols-3 gap-3"
   >
     {#each stats as item (item.id)}
       <div class="space-y-2 px-6">
