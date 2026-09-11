@@ -3,6 +3,18 @@
   import favicon from "/static/assets/tasaed.svg";
   import SiteFooter from "$lib/components/SiteFooter.svelte";
   import SiteHeader from "$lib/components/SiteHeader.svelte";
+  import { onNavigate } from '$app/navigation';
+
+  onNavigate((navigation) => {
+    if (!document.startViewTransition) return;
+
+    return new Promise((resolve) => {
+      document.startViewTransition(async () => {
+        resolve();
+        await navigation.complete;
+      });
+    });
+  });
 
   let { children } = $props();
 </script>

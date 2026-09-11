@@ -96,6 +96,7 @@
 
 <header class="fixed left-4 right-4 top-4 z-50">
   <div
+    style:view-transition-name="studio-header"
     class="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-slate-200/70 bg-white/80 px-6 py-3 text-slate-900 shadow-sm backdrop-blur dark:border-slate-800/80 dark:bg-slate-950/70 dark:text-slate-100"
   >
     <!-- Logo -->
