@@ -9,7 +9,11 @@ export default defineConfig({
     port: 5173, // 指定启动端口
     open: true // 启动后自动打开浏览器
   },
-  optimizeDeps: {
-    include: ["@lucide/svelte", "@icons-pack/svelte-simple-icons"]
+  build: {
+    rolldownOptions: {
+      checks: {
+        pluginTimings: false
+      }
+    }
   }
 });

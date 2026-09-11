@@ -6,5 +6,5 @@ fs.rename(path.join("build", "[...404].html"), path.join("build", "404.html"), (
     console.error("重命名失败:", err);
     return;
   }
-  console.log("重命名成功！");
+  console.log("重命名 [...404].html -> 404.html 成功！");
 });

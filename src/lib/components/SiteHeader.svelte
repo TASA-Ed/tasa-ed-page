@@ -2,7 +2,7 @@
   import { resolve } from "$app/paths";
   import type { Link, NavItem } from "$lib";
   import { isExternalLink, isNavGroup } from "$lib/utils";
-  import { ChartNoAxesGantt } from "@lucide/svelte/icons";
+  import ChartNoAxesGantt from "@lucide/svelte/icons/chart-no-axes-gantt";
   import { fade, slide } from "svelte/transition";
 
   const navLinks: NavItem[] = [

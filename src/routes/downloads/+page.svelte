@@ -1,7 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { Archive, Calendar, Disc, Download, File, FileDigit } from "@lucide/svelte/icons";
-  import { SiGithub } from "@icons-pack/svelte-simple-icons";
+  import Archive from "@lucide/svelte/icons/archive";
+  import Calendar from "@lucide/svelte/icons/calendar";
+  import Disc from "@lucide/svelte/icons/disc";
+  import Download from "@lucide/svelte/icons/download";
+  import File from "@lucide/svelte/icons/file";
+  import FileDigit from "@lucide/svelte/icons/file-digit";
+  import SiGithub from '@icons-pack/svelte-simple-icons/icons/SiGithub';
   import type { DownloadGroup } from "$lib";
 
   const groups: DownloadGroup[] = [

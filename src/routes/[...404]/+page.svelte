@@ -2,7 +2,8 @@
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
   import { resolve } from "$app/paths";
-  import { ArrowLeft, House } from "@lucide/svelte/icons";
+  import ArrowLeft from "@lucide/svelte/icons/arrow-left";
+  import House from "@lucide/svelte/icons/house";
 
   let mounted = $state(false);
 
