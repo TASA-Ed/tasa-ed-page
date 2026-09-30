@@ -22,10 +22,10 @@ export interface Project {
   tags: string[];
 }
 
-export interface Stat {
+export interface Directions {
   id: string;
-  value: string;
-  label: string;
+  title: string;
+  description: string;
 }
 
 export interface SocialLink {

@@ -21,7 +21,8 @@
         {
           label: "Q群",
           href: "https://qm.qq.com/q/nC2N5Y1UX0"
-        }
+        },
+        { label: "爱发电", href: "https://afdian.com/a/tasafoe3469" }
       ]
     },
     {
