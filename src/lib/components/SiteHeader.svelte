@@ -11,7 +11,8 @@
       items: [
         { label: "首页", href: "" },
         { label: "下载", href: "downloads" },
-        { label: "剧本留言簿备份", href: "se-comments-backup" }
+        { label: "剧本留言簿备份", href: "se-comments-backup" },
+        { label: "关于我们", href: "about" }
       ]
     },
     {
@@ -33,7 +34,7 @@
           label: "常见问题",
           href: "https://wiki.tasaed.top/wiki/ourwebsite.html#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"
         },
-        { label: "关于我们", href: "https://wiki.tasaed.top/wiki/tasaed.html" }
+        { label: "工作室资料", href: "https://wiki.tasaed.top/wiki/tasaed.html" }
       ]
     }
   ];

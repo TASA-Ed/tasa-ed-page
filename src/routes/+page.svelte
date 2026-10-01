@@ -4,9 +4,8 @@
   import Mail from "@lucide/svelte/icons/mail";
   import SiGithub from '@icons-pack/svelte-simple-icons/icons/SiGithub';
   import SiQq from '@icons-pack/svelte-simple-icons/icons/SiQq';
-  import type { Project, SocialLink, Directions } from "$lib";
+  import type { Project, SocialLink } from "$lib";
   import { isExternalLink } from "$lib/utils";
-  import { resolve } from "$app/paths";
 
   const email = "studio@tasaed.top";
 
@@ -34,49 +33,42 @@
     }
   ];
 
-  const projects: Project[] = [
+  const projects = [
     {
       id: "project-1",
       title: "SCP 2.5D",
       href: "https://github.com/TASA-Ed/scp25d",
-      description: "工作室的第一个项目，一款 SCP 基金会题材游戏。",
-      tags: ["游戏", "SCP 基金会"]
+      description: "TASA-Ed 工作室的第一个项目，一款 SCP 基金会题材游戏。",
+      tags: ["游戏", "SCP 基金会"],
+      headline: "工作室的起点。",
     },
     {
       id: "project-2",
       title: "历史时代2：DE - LLM Playing Agent",
       href: "https://github.com/TASA-Ed/aoh2de-llm-playing-agent",
-      description: "LLM Playing 的 Agent 端，连接服务端，探索 AI 在策略游戏中的应用。",
-      tags: ["应用", "AI", "Agent"]
+      description: "让 LLM 游玩 历史时代2：DE。LLM Playing 的 Agent 端，可以对接 LLM Playing 服务端，然后研究 AI 在策略游戏中的应用。",
+      tags: ["应用", "AI", "Agent"],
+      headline: "让 LLM 游玩 历史时代2：DE。（Agent 端）",
     },
     {
       id: "project-3",
       title: "NanoYunhu",
       href: "https://github.com/TASA-Ed/nanoyunhu",
-      description: "无头云湖：使用 TypeScript 实现的云湖聊天软件协议端，提供 Satori 协议接入与插件支持。",
-      tags: ["应用", "协议端"]
+      description: "Nanoyunhu，无头云湖。使用 TypeScript 实现的云湖聊天软件协议端，提供 Satori 协议接入与插件支持。",
+      tags: ["应用", "协议端"],
+      headline: "Nanoyunhu，无头云湖。",
     },
     {
       id: "project-4",
       title: "站点：凛冬",
       href: "https://store.steampowered.com/app/3629270",
-      description: "由 NextEpoch 工作室开发的多人探索硬核射击游戏，TASA-Ed 负责运营部分。",
-      tags: ["游戏", "SCP 基金会", "协同运营"]
+      description: "《站点：凛冬》是由 NextEpoch 工作室开发的一款多人探索硬核射击游戏。TASA-Ed 负责运营部分。",
+      tags: ["游戏", "SCP 基金会"],
+      headline: "一场风暴席卷神州大地 洁白的雪，与记忆一同洒落...",
     }
-  ];
-
-  const directions: Directions[] = [
-    {
-      id: "games",
-      title: "游戏与交互探索",
-      description: "我们从 SCP 2.5D 起步，也参与了《站点：凛冬》游戏的运营。还通过 LLM Playing 项目和模组开发 Skills 研究游戏与 AI 的结合。"
-    },
-    {
-      id: "tools",
-      title: "软件与实用工具",
-      description: "我们开发了 NanoYunHu、NodeBB 插件等工具，从聊天协议到社区功能，我们把具体需求变成可以使用的开源软件。"
-    }
-  ];
+  ] satisfies (Project & {
+    headline: string;
+  })[];
 
   const resources: Project[] = [
     {
@@ -106,12 +98,54 @@
     "TASA-Ed 工作室由德二吹风机创立，成立于 2020 年 12 月 20 日。从 SCP 2.5D 到开源软件、游戏 AI 与社区文档，我们希望做出能被他人采用的作品。";
   const title = "TASA-Ed 官网 - TASA-Ed 工作室";
 
+  let workSection: HTMLElement;
+  let activeProject = $state(0);
+
   onMount(() => {
-    window.document.title = title;
+    const cards = workSection.querySelectorAll<HTMLElement>(".project-card");
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const revealed = new WeakSet<Element>();
+    const animations = new Set<Animation>();
+    const revealObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting || revealed.has(entry.target)) continue;
+        revealed.add(entry.target);
+        if (motion.matches) continue;
+        const animation = entry.target.animate(
+          [{ opacity: 0, transform: "translateY(32px)" }, { opacity: 1, transform: "translateY(0)" }],
+          { duration: 700, easing: "cubic-bezier(0.16, 1, 0.3, 1)" }
+        );
+        animations.add(animation);
+        animation.onfinish = () => animations.delete(animation);
+      }
+    }, { threshold: 0.1 });
+    const activeObserver = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) activeProject = Number((entry.target as HTMLElement).dataset.index);
+      }
+    }, { rootMargin: "-20% 0px -55% 0px" });
+    const stopAnimations = () => {
+      if (motion.matches) {
+        for (const animation of animations) animation.cancel();
+        animations.clear();
+      }
+    };
+    for (const card of cards) {
+      revealObserver.observe(card);
+      activeObserver.observe(card);
+    }
+    motion.addEventListener("change", stopAnimations);
+    return () => {
+      revealObserver.disconnect();
+      activeObserver.disconnect();
+      motion.removeEventListener("change", stopAnimations);
+      for (const animation of animations) animation.cancel();
+    };
   });
 </script>
 
 <svelte:head>
+  <title>{title}</title>
   <meta name="description" content={desc} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={desc} />
@@ -120,7 +154,7 @@
 <section class="mx-auto flex max-w-6xl flex-col gap-12 px-6 pb-20 pt-16">
   <div class="flex flex-col gap-6">
     <div class="space-y-6">
-      <h1 class="text-4xl font-semibold leading-tight motion-reduce:animate-none dark:from-slate-100 dark:via-slate-300 dark:to-slate-400 md:text-6xl">TASA-Ed 工作室</h1>
+      <h1 class="text-4xl font-semibold leading-tight md:text-6xl">TASA-Ed 工作室</h1>
       <p class="max-w-2xl text-lg text-slate-600 dark:text-slate-300">
         由德二吹风机创立，专注于自媒体、软件与游戏开发、网站建设。我们喜欢开源，也希望所做的作品能被他人采用！
       </p>
@@ -147,118 +181,53 @@
   </div>
 </section>
 
-<section id="about" aria-labelledby="about-title" class="mx-auto max-w-6xl px-6 pb-20">
-  <div class="grid gap-10 border-t border-slate-200 pt-10 dark:border-slate-800 md:grid-cols-2 md:gap-16">
-    <div class="space-y-5">
-      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
-        关于我们
-      </p>
-      <h2 id="about-title" class="text-3xl font-semibold leading-tight md:text-4xl">
-        从一个游戏开始，<br />把想法变成作品。
-      </h2>
-      <p class="max-w-xl text-base leading-7 text-slate-600 dark:text-slate-300">
-        2020 年，工作室最初为了 SCP 2.5D 而成立。后来，我们从游戏走向软件、网站和内容创作。
-      </p>
-      <p class="max-w-xl text-base leading-7 text-slate-600 dark:text-slate-300">
-        做出对他人有用的东西，是我们一直以来的目标，无论是一款游戏还是一个工具，我们都希望它能够被使用，或给你带来一些有用的想法！
-      </p>
-      <a
-        class="inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline-offset-4 hover:underline focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-500"
-        href="https://wiki.tasaed.top/wiki/tasaed.html"
-        target="_blank"
-        rel="external noopener noreferrer"
-      >
-        了解工作室的故事
-        <ArrowUpRight class="h-4 w-4" aria-hidden="true" />
-      </a>
-    </div>
-    <div class="divide-y divide-slate-200 dark:divide-slate-800">
-      {#each directions as direction (direction.id)}
-        <article class="space-y-3 py-6 first:pt-0 last:pb-0">
-          <h3 class="text-lg font-semibold">{direction.title}</h3>
-          <p class="text-base leading-7 text-slate-600 dark:text-slate-300">{direction.description}</p>
+<section id="work" bind:this={workSection} aria-labelledby="work-title" class="mx-auto max-w-6xl px-6 pb-28">
+  <div class="space-y-4 border-t border-slate-200 pb-12 pt-10 dark:border-slate-800 md:pb-16">
+    <p class="text-xs font-semibold tracking-[0.3em] text-slate-500 dark:text-slate-400">我们在做什么</p>
+    <h2 id="work-title" class="text-3xl font-semibold md:text-4xl">精选项目</h2>
+    <p class="max-w-xl text-base leading-7 text-slate-600 dark:text-slate-300">如需更多项目请查看 GitHub 或 Wiki。</p>
+  </div>
+  <div class="project-showcase border-y border-slate-200 dark:border-slate-800">
+    <nav aria-label="精选项目索引" class="project-index hidden border-r border-slate-200 pr-6 dark:border-slate-800 lg:block">
+      <div class="sticky top-28 space-y-2 py-8">
+        <p class="mb-6 text-xs tracking-[0.2em] text-slate-500 dark:text-slate-400">精选项目</p>
+        {#each projects as project, index (project.id)}
+          <a href={`#${project.id}`} aria-current={activeProject === index ? "location" : undefined} class="project-index-link flex min-h-11 items-start gap-3 rounded-lg px-3 py-3 text-sm text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-500 motion-reduce:transition-none dark:text-slate-400 dark:hover:bg-slate-900 dark:hover:text-white">
+            <span>{project.title}</span>
+          </a>
+        {/each}
+      </div>
+    </nav>
+    <div class="min-w-0 divide-y divide-slate-200 dark:divide-slate-800">
+      {#each projects as project, index (project.id)}
+        <article id={project.id} data-index={index} class="project-card grid gap-6 py-10 md:py-14 lg:grid-cols-2 lg:gap-16 lg:pl-10">
+          <div class="space-y-4">
+            <h3 class="text-2xl font-semibold leading-snug md:text-3xl">{project.title}</h3>
+            <p class="text-lg font-medium text-slate-700 dark:text-slate-200">{project.headline}</p>
+          </div>
+          <div class="flex h-full flex-col gap-6">
+            <p class="max-w-lg text-base leading-7 text-slate-600 dark:text-slate-300">{project.description}</p>
+            <div class="mt-auto space-y-4">
+              <div class="flex flex-wrap gap-2 text-xs text-slate-600 dark:text-slate-300">
+                {#each project.tags as tag (tag)}
+                  <span class="rounded-full border border-slate-200 px-3 py-1.5 dark:border-slate-700">{tag}</span>
+                {/each}
+              </div>
+              <a
+                href={project.href}
+                target="_blank"
+                rel="external noopener noreferrer"
+                aria-label={`查看 ${project.title} 项目`}
+                class="inline-flex min-h-11 items-center gap-3 rounded-full border border-slate-300 bg-white px-5 py-3 text-sm font-semibold transition-colors hover:border-slate-900 hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-500 motion-reduce:transition-none dark:border-slate-700 dark:bg-slate-900 dark:hover:border-slate-400 dark:hover:bg-slate-800"
+              >
+                查看项目
+                <ArrowUpRight class="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
         </article>
       {/each}
     </div>
-  </div>
-</section>
-
-<section id="work" class="mx-auto max-w-6xl px-6 pb-20">
-  <div class="flex flex-col gap-2 pb-10">
-    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
-      我们在做什么
-    </p>
-    <h2 class="text-3xl font-semibold text-slate-900 dark:text-white md:text-4xl">精选项目</h2>
-    <p class="max-w-xl text-sm text-slate-600 dark:text-slate-300">
-      游戏、实用工具与开发资料等。
-    </p>
-  </div>
-  <div class="grid gap-6 md:grid-cols-2">
-    {#each projects as project (project.id)}
-      {#if isExternalLink(project.href)}
-        <a
-          title={`${project.title} 项目详情`}
-          aria-label={`${project.title} 项目详情`}
-          class="group relative flex flex-col cursor-pointer overflow-hidden rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm transition-all duration-200 hover:border-slate-400 hover:shadow-md motion-reduce:transition-none dark:border-slate-800/70 dark:bg-slate-900/60 dark:hover:border-slate-600"
-          href={project.href}
-          rel="external"
-          target="_blank"
-        >
-          <div class="flex flex-1 flex-col justify-between space-y-3">
-            <div class="space-y-3">
-              <div
-                class="flex items-center justify-between text-sm font-semibold text-slate-900 dark:text-white"
-              >
-                <span>{project.title}</span>
-                <ArrowUpRight
-                  class="h-4 w-4 text-slate-400 transition-colors duration-200 group-hover:text-slate-900 dark:group-hover:text-white"
-                  aria-hidden="true"
-                />
-              </div>
-              <p class="text-sm text-slate-600 dark:text-slate-300">{project.description}</p>
-            </div>
-            <div class="flex flex-wrap gap-2 pt-1 text-xs text-slate-600 dark:text-slate-300">
-              {#each project.tags as tag, index (index)}
-                <span
-                  class="rounded-full border border-slate-200/80 px-3 py-1 dark:border-slate-700/80"
-                  >{tag}</span
-                >
-              {/each}
-            </div>
-          </div>
-        </a>
-      {:else}
-        <a
-          title={`${project.title} 项目详情`}
-          aria-label={`${project.title} 项目详情`}
-          class="group relative flex flex-col cursor-pointer overflow-hidden rounded-3xl border border-slate-200/70 bg-white/80 p-6 shadow-sm transition-all duration-200 hover:border-slate-400 hover:shadow-md motion-reduce:transition-none dark:border-slate-800/70 dark:bg-slate-900/60 dark:hover:border-slate-600"
-          href={resolve(`/${project.href}`)}
-        >
-          <div class="flex flex-1 flex-col justify-between space-y-3">
-            <div class="space-y-3">
-              <div
-                class="flex items-center justify-between text-sm font-semibold text-slate-900 dark:text-white"
-              >
-                <span>{project.title}</span>
-                <ArrowUpRight
-                  class="h-4 w-4 text-slate-400 transition-colors duration-200 group-hover:text-slate-900 dark:group-hover:text-white"
-                  aria-hidden="true"
-                />
-              </div>
-              <p class="text-sm text-slate-600 dark:text-slate-300">{project.description}</p>
-            </div>
-            <div class="flex flex-wrap gap-2 pt-1 text-xs text-slate-600 dark:text-slate-300">
-              {#each project.tags as tag, index (index)}
-                <span
-                  class="rounded-full border border-slate-200/80 px-3 py-1 dark:border-slate-700/80"
-                  >{tag}</span
-                >
-              {/each}
-            </div>
-          </div>
-        </a>
-      {/if}
-    {/each}
   </div>
 </section>
 
@@ -341,7 +310,7 @@
               title={link.label}
               aria-label={link.label}
             >
-              <svelte:component this={link.icon} class="h-5 w-5 shrink-0" aria-hidden="true" />
+              <link.icon class="h-5 w-5 shrink-0" aria-hidden="true" />
               <span class="break-all">{link.display}</span>
             </a>
           {:else}
@@ -351,7 +320,7 @@
               title={link.label}
               aria-label={link.label}
             >
-              <svelte:component this={link.icon} class="h-5 w-5 shrink-0" aria-hidden="true" />
+              <link.icon class="h-5 w-5 shrink-0" aria-hidden="true" />
               <span class="break-all">{link.display}</span>
             </a>
           {/if}
@@ -360,3 +329,26 @@
     </div>
   </div>
 </section>
+
+<style>
+  .project-index-link[aria-current="location"] {
+    background: var(--color-slate-200);
+    color: var(--color-slate-900);
+    font-weight: 600;
+  }
+  @media (prefers-color-scheme: dark) {
+    .project-index-link[aria-current="location"] {
+      background: var(--color-slate-800);
+      color: var(--color-slate-100);
+    }
+  }
+
+
+  @media (min-width: 1024px) {
+    .project-showcase {
+      display: grid;
+      grid-template-columns: 13rem minmax(0, 1fr);
+    }
+  }
+
+</style>

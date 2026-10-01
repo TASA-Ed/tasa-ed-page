@@ -84,3 +84,16 @@ footer {
     animation: gradient 3s ease infinite;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  .animate-gradient,
+  h1 {
+    animation: none;
+  }
+}
